@@ -19,7 +19,6 @@ class Hikes
         $this -> id = $id;
     }
     
-     
     public function getNom(): string
     {
         return $this->nom;
@@ -40,16 +39,6 @@ class Hikes
         $this->commun = $commun;
     }
     
-    public function getTypeCuisine(): string
-    {
-        return $this->typeCuisine;
-    }
-
-    public function setTypeCuisine(string $typeCuisine): void
-    {
-        $this->typeCuisine = $typeCuisine;
-    }
-
     public function getDistance(): int
     {
         return $this->distance;
@@ -59,16 +48,34 @@ class Hikes
     {
         $this->distance = $distance;
     }
-
     
-
-    public function getSiteWeb(): string
+    public function getDuree(): string
     {
-        return $this->siteWeb;
+        return $this->duree;
     }
 
-    public function setSiteWeb(string $siteWeb): void
+    public function setDuree(string $duree): void
     {
-        $this->siteWeb = $siteWeb;
+        $this->duree = $duree;
+    }
+    
+    public function getNiveau(): string
+    {
+        return $this->niveau;
+    }
+    
+    public function setNiveau(string $niveau): void
+    {
+        $this->niveau = $niveau;
+    }
+
+    public function getSite(): string
+    {
+        return $this->site;
+    }
+
+    public function setSite(string $site): void
+    {
+        $this->site = $site;
     }
 }
