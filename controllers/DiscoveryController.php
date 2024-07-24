@@ -9,10 +9,42 @@ class DiscoveryController extends AbstractController
     
     public function listePlages(): void
     {
+        
+        
+        //echo "listePlages";
+        
         $pm = new PlagesManager();
         
-        $plages = $am->findAllPlages();
+        $plages = $pm->findAllPlages();
         
-        $this->render("",[]);
+        $this->render("discovery/plages.html.twig",[
+            "plages" =>$plages
+            ]);
+    }
+    
+    public function listeRivers(): void
+    {
+        //echo "listeRivers";
+        
+        $rm = new RiversManager();
+        
+        $rivers = $rm->findAllRivers();
+        
+        $this->render("discovery/rivers.html.twig",[
+            "rivers" =>$rivers
+            ]);
+    }
+    
+    public function listeRestaurants(): void
+    {
+        //echo "listeRestaurants";
+        
+        $rtm = new RestaurantsManager();
+        
+        $restaurants = $rtm->findAllRestaurants();
+        
+        $this->render("discovery/restaurants.html.twig",[
+            "restaurants" =>$restaurants
+            ]);
     }
 }

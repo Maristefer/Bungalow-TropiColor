@@ -28,5 +28,13 @@ class Router
         {
             $this->dc->listePlages();
         }
+        else if(isset($get["route"]) && $get["route"] === "discovery_rivers")
+        {
+            $this->dc->listeRivers();
+        }
+        else if(isset($get["route"]) && $get["route"] === "discovery_restaurants")
+        {
+            $this->dc->listeRestaurants();
+        }
     }
 }
