@@ -1,6 +1,6 @@
 <?php
 
-class ActivityManager extends AbstractManager
+class PlagesManager extends AbstractManager
 {
     public function __construct()
     {
