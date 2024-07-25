@@ -73,4 +73,15 @@ class DiscoveryController extends AbstractController
             "parks"=>$parks
             ]);
     }
+    
+    public function listeVisits(): void
+    {
+        $vm = new VisitsManager();
+        
+        $visits = $vm->findAllVisits();
+        
+        $this->render("discovery/visits.html.twig",[
+            "visits"=>$visits
+            ]);
+    }
 }
