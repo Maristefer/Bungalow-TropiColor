@@ -36,5 +36,9 @@ class Router
         {
             $this->dc->listeRestaurants();
         }
+        else if(isset($get["route"]) && $get["route"] === "discovery_hikes")
+        {
+            $this->dc->listeHikes();
+        }
     }
 }

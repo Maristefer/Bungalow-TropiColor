@@ -47,4 +47,17 @@ class DiscoveryController extends AbstractController
             "restaurants" =>$restaurants
             ]);
     }
+    
+    public function listeHikes(): void
+    {
+        //echo "listeHikes";
+        
+        $hm = new HikesManager();
+        
+        $hikes = $hm->findAllHikes();
+        
+        $this->render("discovery/hikes.html.twig",[
+            "hikes"=>$hikes
+            ]);
+    }
 }
