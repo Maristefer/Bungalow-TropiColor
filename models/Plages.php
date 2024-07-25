@@ -4,7 +4,7 @@ class Plages
 {
     private ? int $id =null;
 
-    public function __construct(private string $nom, private string $description, private int $distance, private string $commun, private string $url_localisation)
+    public function __construct(private string $nom, private string $description, private string $distance, private string $commun, private string $url_localisation)
     {
         
     }
@@ -40,12 +40,12 @@ class Plages
         $this->description = $description;
     }
 
-    public function getDistance(): int
+    public function getDistance(): string
     {
         return $this->distance;
     }
  
-    public function setDistance(int $distance): void
+    public function setDistance(string $distance): void
     {
         $this->distance = $distance;
     }
