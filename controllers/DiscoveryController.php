@@ -60,4 +60,17 @@ class DiscoveryController extends AbstractController
             "hikes"=>$hikes
             ]);
     }
+    
+    public function listeParks(): void
+    {
+        //echo "listeParks";
+        
+        $pkm = new ParksManager();
+        
+        $parks = $pkm->findAllParks();
+        
+        $this->render("discovery/parks.html.twig",[
+            "parks"=>$parks
+            ]);
+    }
 }
