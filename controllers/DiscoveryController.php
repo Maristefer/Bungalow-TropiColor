@@ -4,12 +4,11 @@ class DiscoveryController extends AbstractController
 {
     public function discovery(): void
     {
-        $this->render("",[]);
+        $this->render("discovery/discovery.html.twig",[]);
     }
     
     public function listePlages(): void
     {
-        
         
         //echo "listePlages";
         

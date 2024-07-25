@@ -2,12 +2,14 @@
 
 class Router 
 {
-    private ActivityController $ac;
+    private DiscoveryController $dc;
+    private BungalowsController $bc;
     
     
     public function __construct()
     {
         $this->dc = new DiscoveryController();
+        $this->bc = new BungalowsController();
     }
     
     public function handleRequest(array $get): void
@@ -47,6 +49,10 @@ class Router
         else if(isset($get["route"]) && $get["route"] === "discovery_visits")
         {
             $this->dc->listeVisits();
+        }
+        else if(isset($get["route"]) && $get["route"] === "bungalows")
+        {
+            $this->bc->listeBungalows();
         }
     }
 }
