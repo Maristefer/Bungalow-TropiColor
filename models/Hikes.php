@@ -4,7 +4,7 @@ class Hikes
 {
     private ? int $id =null;
 
-    public function __construct(private string $nom, private string $commun, private int $distance, private string $duree, private string $niveau, private string $site)
+    public function __construct(private string $nom, private string $commun, private string $distance, private string $duree, private string $niveau, private string $site)
     {
         
     }
@@ -39,12 +39,12 @@ class Hikes
         $this->commun = $commun;
     }
     
-    public function getDistance(): int
+    public function getDistance(): string
     {
         return $this->distance;
     }
  
-    public function setDistance(int $distance): void
+    public function setDistance(string $distance): void
     {
         $this->distance = $distance;
     }
