@@ -1,5 +1,50 @@
 h1 {
     color: $title-orange;
-    font-family: $font-fami-text;
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.block-header{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
     
+
+/*.block-header{
+    .fig-logo{
+        text-align: center;
+        
+    }
+    
+}*/
+
+.fig-logo{
+    text-align: center;
+   
+   
+}
+
+.logo {
+    width: 20%
+}
+
+.menu-b {
+    width:50%;
+}
+
+//TABLETTE
+@media screen and (min-width: 780px){
+    h1 {
+    font-size: 2.5rem;
+}
+}
+
+//DESKTOP
+@media screen and (min-width: 980px) {
+	.menu-b {
+	    display:none;
+	}
 }
