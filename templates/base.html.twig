@@ -3,14 +3,17 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Site de location de Bungalow en Guadeloupe">
+	    <meta name="description" content="Site de location de Bungalow en Guadeloupe">
         <title> {% block title %} {% endblock %} | Bungalow TropiColor</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Signika:wght@300..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/styles/css/style.css" />
     </head>
     <body>
         <header>
             <figure>
-                <img />
+                <img src="assets/img/logo 3.png" alt=""/>
             </figure>
             <h1>Bungalow TropiColor</h1>
             <nav>
@@ -32,7 +35,7 @@
                     <li>
                         <a href="">Découverte</a>
                         <ul>
-					        <li><a href="#">Les Plages</a></li>
+					        <li><a href="index.php?route=discovery_beach">Les Plages</a></li>
 					        <li><a href="#">Les Rivières</a></li>
 					        <li><a href="#">Les Randonnées</a></li>
 					        <li><a href="#">Les Restaurants</a></li>
@@ -56,7 +59,13 @@
         {% endblock %}
 
         <footer>
-
+            <p>Politique de confidentialités</p>
+            <p>Mentions légales et CGU</p>
+            <p>Contactez-nous</p>
+            <p>Lamentin</p>
+            <p>Téléphone</p>
+            <p>mail</p>
+            <p>Réseaux sociaux</p>
         </footer>
 
         {% block javascript %}

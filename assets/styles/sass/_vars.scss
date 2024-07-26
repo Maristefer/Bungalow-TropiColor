@@ -1,0 +1,43 @@
+// !VARS
+
+// ?COLORS
+
+$title-orange: #CC4E00;
+$title-blue: #00A2C7;
+$gb-cards: #F2FAFB;
+$text-white: #FFF;
+$text-black: black;
+$text-orange: #CC4E00;
+$gd-button-blue: #00A2C7;
+
+
+
+//? FONT 
+$font-fami-title: "Dancing Script", cursive;
+$font-fami-text: "Signika", sans-serif;
+
+// ? GRADIENT
+$gradient-main: linear-gradient(180deg, #0338F4 35%, #E025CE 100% );
+$gradient-bg-footer: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
+
+// ? BORDERS
+
+$border-radius-button: 40px 10px;
+$border-button-blue: 4px solid #00A2C7;
+
+// ! MIXINS
+
+@mixin title($color: $title-orange, $font-family:$font-fami-title)
+{
+    font-family: $font-family;
+    color: $color;
+    font-weight: 700;
+}
+
+/*@mixin title($font-size: 1.6rem , $color: $title-orange, $font-family:$font-fami-title)
+{
+    font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+    font-weight: 700;
+}*/
