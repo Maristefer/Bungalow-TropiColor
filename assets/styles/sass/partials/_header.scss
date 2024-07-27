@@ -1,38 +1,39 @@
+header {
+    background-color: $bg-header;
+}
 h1 {
-    color: $title-orange;
+    /*color: $title-orange;
     font-family: "Dancing Script", cursive;
-    font-weight: 700;
+    font-weight: 700;*/
+    @include title;
     font-size: 1.5rem;
     text-align: center;
 }
 
 .block-header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: center;
+    align-items: center;
     width: 100%;
-    
-
-/*.block-header{
-    .fig-logo{
-        text-align: center;
-        
-    }
-    
-}*/
+}
 
 .fig-logo{
     text-align: center;
-   
-   
+    width: 20%;
+   .logo {
+    width: 50%;
+    }
 }
 
-.logo {
-    width: 20%
+.fig-menu{
+    .menu-b {width:30%;}
 }
 
-.menu-b {
-    width:50%;
+.fig-login{
+    .img-login{
+        width:60%;
+    }
 }
 
 //TABLETTE
@@ -44,7 +45,9 @@ h1 {
 
 //DESKTOP
 @media screen and (min-width: 980px) {
-	.menu-b {
+	.menu-b, .img-login {
 	    display:none;
 	}
+	
+	
 }
