@@ -124,7 +124,25 @@ h1 {
     position: sticky;
     font-family: "Dancing Script", cursive;
     font-size: 1.5rem;
-    color: black;
+  }
+  .menu > ul {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 2px solid #00A2C7;
+  }
+  .menu ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+  .menu > ul > li:hover > a {
+    color: #00A2C7;
+  }
+  .under-menu {
+    text-align: center;
+    overflow: hidden;
   }
 }
 /* LAYOUTS */

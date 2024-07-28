@@ -56,9 +56,45 @@ h1 {
     position: sticky;
     font-family: $font-fami-title;
     font-size: 1.5rem;
-    color: $text-black;
     }
     
+    .menu{
+        >ul{
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 2px solid $border-blue;
+        }
+        
+        ul {
+            li{
+                
+                a{
+                    color: $text-black;
+                    text-decoration: none;
+                }
+                
+            }
+            
+        }
+    }
+    
+    .menu{
+        >ul{
+            >li:hover{
+                >a{
+                      color: $text-blue;
+                }
+            }
+        }
+    }
+    
+    .under-menu{
+        text-align:center;
+        overflow:hidden;
+    }
     
 	
 	
