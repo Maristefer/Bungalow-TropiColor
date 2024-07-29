@@ -123,26 +123,68 @@ h1 {
     width: 100%;
     position: sticky;
     font-family: "Dancing Script", cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .menu > ul {
     display: flex;
     text-align: center;
     justify-content: space-around;
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border-top: 2px solid #00A2C7;
+    border-bottom: 2px solid #CC4E00;
   }
   .menu ul li a {
     color: #000;
     text-decoration: none;
   }
-  .menu > ul > li:hover > a {
-    color: #00A2C7;
+  .menu .login {
+    background-color: #00A2C7;
+    padding: 0.5rem 2rem;
+    border-radius: 4rem 0.5rem;
+    width: 15rem;
   }
-  .under-menu {
-    text-align: center;
+  .menu .login .button-login {
+    color: #FFF;
+  }
+  /* Les hovers du MENU*/
+  .menu > ul > li:hover {
+    background-color: #00A2C7;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+  }
+  .menu > ul > li:hover > a {
+    color: #FFF;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu {
+    display: block;
+    text-align: left;
+    background-color: #FFF;
+    margin: 0.5rem;
+    padding: 0.5rem;
     overflow: hidden;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu li:hover {
+    background-color: #CC4E00;
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu li:hover a {
+    color: #FFF;
+  }
+  .menu .login:hover {
+    background-color: #CC4E00;
+    padding: 0.5rem 2rem;
+    border-radius: 4rem 0.5rem;
+    width: 15rem;
+  }
+  /*Sous-menu masqué*/
+  .menu > ul > .scrolling-menu .under-menu {
+    position: absolute;
+    display: none;
+  }
+  .menu > ul > .scrolling-menu .under-menu > li {
+    margin: 1rem;
   }
 }
 /* LAYOUTS */

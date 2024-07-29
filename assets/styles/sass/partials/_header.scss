@@ -51,27 +51,31 @@ h1 {
 	    display:none;
 	}
 	
-	.menu {
-    width: 100%; 
-    position: sticky;
-    font-family: $font-fami-title;
-    font-size: 1.5rem;
-    }
-    
-    .menu{
-        >ul{
+	.menu 
+	{
+        width: 100%; 
+        position: sticky;
+        font-family: $font-fami-title;
+        font-size: 2rem;
+        
+        >ul
+        {
             display: flex;
             text-align: center;
             justify-content: space-around;
             margin-top: 2rem;
-            padding: 1rem;
+            padding: 1.5rem;
             border-top: 2px solid $border-blue;
+            border-bottom: 2px solid $border-orange;
         }
         
-        ul {
-            li{
+        ul 
+        {
+            li
+            {
                 
-                a{
+                a
+                {
                     color: $text-black;
                     text-decoration: none;
                 }
@@ -80,22 +84,107 @@ h1 {
             
         }
     }
-    
     .menu{
-        >ul{
-            >li:hover{
-                >a{
-                      color: $text-blue;
+     .login
+     {
+         background-color: $bg-button-blue;
+             padding: .5rem 2rem;
+             border-radius: 4rem .5rem;
+              width:15rem;
+         .button-login
+         {
+             color: $text-white;
+         }
+     }
+      
+  }  
+
+/* Les hovers du MENU*/    
+    
+    .menu
+    {
+        >ul
+        {
+            >li:hover
+            {
+                background-color: $bg-button-blue;
+                padding: 0.5rem 2rem;
+                border-radius: 1rem;
+                >a
+                {
+                      color: $text-white;
+                      
                 }
             }
         }
     }
     
-    .under-menu{
-        text-align:center;
-        overflow:hidden;
+  .menu
+    {
+        >ul
+        {
+            >.scrolling-menu:hover
+            {
+                .under-menu
+                {
+                    display:block;
+                    text-align:left;
+                    background-color: #FFF;
+                    margin: .5rem;
+                    padding: .5rem;
+                    overflow:hidden;
+                    li:hover{
+                        background-color: $bg-button-orange;
+                        border-radius: 1rem;
+                        padding: .5rem;
+                        a
+                        {
+                            color: $text-white;
+                        }
+                    }    
+                }
+            }    
+        }
     }
     
+    .menu{
+     .login:hover
+     {
+         background-color: $bg-button-orange;
+             padding: .5rem 2rem;
+             border-radius: 4rem .5rem;
+             width:15rem;
+            .button-login
+         {
+             
+         }
+     }
+      
+  }  
+    
+ /*Sous-menu masqué*/   
+    .menu
+    {
+        > ul
+        {
+            >.scrolling-menu
+            {
+                .under-menu 
+                {
+	                position: absolute;
+	                display: none;
+	                
+                    >li
+                    {
+                         margin: 1rem;
+
+                    }
+                }        
+            }
+        }    
+    }
+    
+ 
 	
 	
 }
