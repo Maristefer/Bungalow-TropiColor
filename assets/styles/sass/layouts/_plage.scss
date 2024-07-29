@@ -1,0 +1,68 @@
+/**** MOBILE ****/
+.main-plages {
+    background: $gradient-main;
+}
+
+h2{
+    @include title;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.intro-plages{
+    @include paragraph;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+}
+
+/*CARDS*/
+.plages-container
+{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.card-plage
+    {
+        background-color: $bg-cards-white;
+        border-radius: $border-radius-card;
+        width: 80%;
+    
+        img
+        {
+        width:100%;
+        border-radius: 4rem .5rem;
+        }
+    }
+
+
+.details-plage 
+{
+    h3{
+        @include title($color: $text-blue);
+        text-align: center;
+    }
+    p{
+        @include paragraph;
+        
+    }
+}
+
+
+
+/****TABLETTE****/
+
+@media screen and (min-width: 780px){
+  
+     h2 {
+            font-size: 3rem;
+        }
+}
+
+
+
+/**** DESKTOP ****/
+@media screen and (min-width: 980px) {}

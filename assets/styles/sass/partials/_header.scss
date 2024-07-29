@@ -1,5 +1,8 @@
 header {
     background-color: $bg-header;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $border-blue;
+
 }
 
 /*BANDE LOGO*/
@@ -9,11 +12,12 @@ h1 {
     font-weight: 700;*/
     @include title;
     font-size: 1.5rem;
+    
 }
 
 .block-header{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-align: center;
     align-items: center;
     width: 100%;
@@ -37,22 +41,35 @@ h1 {
     }
 }
 
+.menu{
+    display:none;
+}
+
 /****TABLETTE****/
 
 @media screen and (min-width: 780px){
     h1 {
-    font-size: 2.5rem;
-}
+        font-size: 2.5rem;
+        
+    }
 }
 
-//DESKTOP
+/**** DESKTOP ****/
 @media screen and (min-width: 980px) {
 	.menu-b, .img-login {
 	    display:none;
 	}
 	
+	h1 {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+	}
+    
+/***MENU***/	
 	.menu 
 	{
+	    display: block;
         width: 100%; 
         position: sticky;
         font-family: $font-fami-title;
@@ -84,6 +101,7 @@ h1 {
             
         }
     }
+    
     .menu{
      .login
      {
@@ -99,7 +117,7 @@ h1 {
       
   }  
 
-/* Les hovers du MENU*/    
+/** Les hovers du MENU **/    
     
     .menu
     {
@@ -109,11 +127,11 @@ h1 {
             {
                 background-color: $bg-button-blue;
                 padding: 0.5rem 2rem;
-                border-radius: 1rem;
+                border-radius: 4rem .5rem;
+                width: 15rem;
                 >a
                 {
                       color: $text-white;
-                      
                 }
             }
         }
@@ -135,8 +153,8 @@ h1 {
                     overflow:hidden;
                     li:hover{
                         background-color: $bg-button-orange;
-                        border-radius: 1rem;
-                        padding: .5rem;
+                        border-radius: 4rem .5rem;
+                        padding: 0.5rem 1.5rem;
                         a
                         {
                             color: $text-white;
@@ -162,7 +180,7 @@ h1 {
       
   }  
     
- /*Sous-menu masqué*/   
+ /** Sous-menu masqué **/   
     .menu
     {
         > ul

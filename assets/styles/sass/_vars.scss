@@ -5,7 +5,8 @@
 $title-orange: #CC4E00;
 $title-blue: #00A2C7;
 
-$bg-cards: #F2FAFB;
+$bg-cards-blue: #F2FAFB;
+$bg-cards-white: #FFF;
 $bg-header: #F2FAFB;
 $bg-button-blue: #00A2C7;
 $bg-button-orange: #CC4E00;
@@ -24,13 +25,14 @@ $font-fami-title: "Dancing Script", cursive;
 $font-fami-text: "Signika", sans-serif;
 
 // ? GRADIENT
-$gradient-main: linear-gradient(180deg, #0338F4 35%, #E025CE 100% );
+$gradient-main: linear-gradient(180deg, rgba(255, 247, 237, 0.30) 0%, rgba(125, 206, 220, 0.30) 100% );
 $gradient-bg-footer: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
 
 // ? BORDERS
 
 $border-radius-button: 40px 10px;
 $border-button-blue: 4px solid #00A2C7;
+$border-radius-card: 1rem;
 
 // ! MIXINS
 
@@ -40,6 +42,13 @@ $border-button-blue: 4px solid #00A2C7;
     color: $color;
     font-weight: 700;
     text-align: center;
+}
+
+@mixin paragraph($color: $text-black, $font-family: $font-fami-text)
+{
+    font-family: $font-family;
+    color:$color;
+    
 }
 
 /*@mixin title($font-size: 1.6rem , $color: $title-orange, $font-family:$font-fami-title)
