@@ -131,6 +131,7 @@ h1 {
     padding-bottom: 1rem;
   }
   header {
+    padding-bottom: 0;
     border-bottom: none;
   }
   /***MENU***/
