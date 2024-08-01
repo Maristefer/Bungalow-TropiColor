@@ -154,6 +154,7 @@ h1 {
   .menu ul li a {
     color: #000;
     text-decoration: none;
+    margin: 1rem;
   }
   .menu .login {
     background-color: #00A2C7;
@@ -217,7 +218,7 @@ h2 {
   font-weight: 700;
   text-align: center;
   font-size: 2rem;
-  margin: 1rem;
+  padding: 1rem;
 }
 
 .intro-plages {
