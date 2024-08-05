@@ -103,7 +103,7 @@ h1 {
   width: 50%;
 }
 
-.fig-menu .menu-b {
+.menu-burger .menu-b {
   width: 30%;
 }
 
@@ -232,15 +232,17 @@ h2 {
 /*CARDS*/
 .plages-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
 }
-
-.card-plage {
+.plages-container .card-plage {
   background-color: #FFF;
-  border-radius: 1rem;
-  width: 80%;
+  border-radius: 4rem 1rem 1rem 1rem;
+  max-width: 80%;
+  margin-bottom: 1rem;
 }
-.card-plage img {
+.plages-container .card-plage img {
   width: 100%;
   border-radius: 4rem 0.5rem;
 }
@@ -251,10 +253,12 @@ h2 {
   font-weight: 700;
   text-align: center;
   text-align: center;
+  font-size: 1.5rem;
 }
 .details-plage p {
   font-family: "Signika", sans-serif;
   color: #000;
+  margin: 1rem;
 }
 
 /****TABLETTE****/
@@ -262,6 +266,28 @@ h2 {
   h2 {
     font-size: 3rem;
   }
+  .plages-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .plages-container .card-plage {
+    max-width: 40%;
+  }
+  .plages-container .card-plage img {
+    width: 100%;
+    border-radius: 4rem 0.5rem;
+  }
+  /*.card-plage
+  {
+      width: 80%;
+
+      img
+      {
+      width:100%;
+      border-radius: 4rem .5rem;
+      }
+  }    */
 }
 /**** DESKTOP ****/
 /*@import "layouts/teams";

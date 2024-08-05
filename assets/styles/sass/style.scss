@@ -5,14 +5,14 @@
 @import 'vars';
 
 /* LIBS */
-@import "libs/reset";
+@import "front/libs/reset";
 
 /* PARTIALS */
-@import "partials/header";
-@import "partials/footer";
+@import "front/partials/header";
+@import "front/partials/footer";
 
 /* LAYOUTS */
-@import "layouts/plage";
+@import "front/layouts/plage";
 /*@import "layouts/teams";
 @import "layouts/team";
 @import "layouts/players";

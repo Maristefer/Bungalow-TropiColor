@@ -20,16 +20,16 @@ h2{
 .plages-container
 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
     
-    
-}
-
-.card-plage
+    .card-plage
     {
         background-color: $bg-cards-white;
         border-radius: $border-radius-card;
-        width: 80%;
+        max-width: 80%;
+        margin-bottom: 1rem;
     
         img
         {
@@ -37,6 +37,7 @@ h2{
         border-radius: 4rem .5rem;
         }
     }
+}
 
 
 .details-plage 
@@ -44,9 +45,11 @@ h2{
     h3{
         @include title($color: $text-blue);
         text-align: center;
+        font-size: 1.5rem;
     }
     p{
         @include paragraph;
+        margin: 1rem;
         
     }
 }
@@ -60,6 +63,35 @@ h2{
      h2 {
             font-size: 3rem;
         }
+        
+    .plages-container
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+    .card-plage
+    {
+        max-width: 40%;
+    
+        img
+        {
+            width:100%;
+            border-radius: 4rem .5rem;
+        }
+    }    
+}    
+        
+    /*.card-plage
+    {
+        width: 80%;
+    
+        img
+        {
+        width:100%;
+        border-radius: 4rem .5rem;
+        }
+    }    */
 }
 
 
