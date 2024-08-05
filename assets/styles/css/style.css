@@ -103,6 +103,9 @@ h1 {
   width: 50%;
 }
 
+.menu-burger {
+  cursor: pointer;
+}
 .menu-burger .menu-b {
   width: 30%;
 }
@@ -111,8 +114,35 @@ h1 {
   width: 60%;
 }
 
+/**MENU-BURGER**/
 .menu {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu ul {
+  padding: 0;
+  margin: 0;
+}
+.menu ul li {
+  margin: 10px 0;
+}
+.menu ul li a {
+  color: #333;
+  font-size: 18px;
+}
+
+/*hover menu-burger*/
+.menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.menu.active {
+  display: flex;
 }
 
 /****TABLETTE****/
@@ -160,7 +190,7 @@ h1 {
     background-color: #00A2C7;
     padding: 0.5rem 2rem;
     border-radius: 4rem 0.5rem;
-    width: 15rem;
+    max-width: 19%;
   }
   .menu .login .button-login {
     color: #FFF;
@@ -170,7 +200,7 @@ h1 {
     background-color: #00A2C7;
     padding: 0.5rem 2rem;
     border-radius: 4rem 0.5rem;
-    width: 15rem;
+    max-width: 15rem;
   }
   .menu > ul > li:hover > a {
     color: #FFF;

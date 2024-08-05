@@ -32,6 +32,7 @@ h1 {
 }
 
 .menu-burger{
+    cursor: pointer;
     .menu-b {width:30%;}
 }
 
@@ -41,8 +42,38 @@ h1 {
     }
 }
 
+/**MENU-BURGER**/
+
 .menu{
     display:none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    ul{
+        padding: 0;
+        margin: 0;
+        li{
+            margin: 10px 0;
+            a{
+                color: #333;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+/*hover menu-burger*/
+
+.menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.menu.active {
+    display: flex;
 }
 
 /****TABLETTE****/
@@ -112,7 +143,7 @@ h1 {
          background-color: $bg-button-blue;
              padding: .5rem 2rem;
              border-radius: 4rem .5rem;
-              width:15rem;
+              max-width:19%;
          .button-login
          {
              color: $text-white;
@@ -132,7 +163,7 @@ h1 {
                 background-color: $bg-button-blue;
                 padding: 0.5rem 2rem;
                 border-radius: 4rem .5rem;
-                width: 15rem;
+                max-width: 15rem;
                 >a
                 {
                       color: $text-white;
