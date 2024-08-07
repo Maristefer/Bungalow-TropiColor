@@ -47,30 +47,86 @@ h1 {
 .menu{
     display:none;
     flex-direction: column;
+    position: relative;
+    top: -3rem;
     align-items: center;
-    width: 100%;
+    width: 30%;
     background-color: #f8f9fa;
     padding: 20px;
+    margin-left: 1rem;
+    border-radius: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
     ul{
         padding: 0;
         margin: 0;
         li{
+            text-decoration: none;
             margin: 10px 0;
             a{
+                text-decoration: none;
                 color: #333;
+                font-family: $font-fami-text;
                 font-size: 18px;
             }
         }
     }
 }
 
+.menu
+    {
+        > ul
+        {
+            >.scrolling-menu
+            {
+                .under-menu 
+                {
+	                position: absolute;
+	                display: none;
+	                
+                    >li
+                    {
+                         margin: 1rem;
+
+                    }
+                }        
+            }
+        }    
+    }
+
 /*hover menu-burger*/
 
-.menu ul li a:hover {
-    text-decoration: underline;
+.menu ul li:hover {
+    
 }
+.menu
+    {
+        >ul
+        {
+            >.scrolling-menu:hover
+            {
+                .under-menu
+                {
+                    display:block;
+                    position: relative;
+                    text-align:left;
+                    background-color: #FFF;
+                    margin: .5rem;
+                    padding: .5rem;
+                    overflow:hidden;
+                    li:hover{
+                        background-color: $bg-button-orange;
+                        border-radius: 4rem .5rem;
+                        padding: 0.5rem 1.5rem;
+                        a
+                        {
+                            color: $text-white;
+                        }
+                    }    
+                }
+            }    
+        }
+    }
 
 .menu.active {
     display: flex;

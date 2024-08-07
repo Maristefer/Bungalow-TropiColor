@@ -118,10 +118,14 @@ h1 {
 .menu {
   display: none;
   flex-direction: column;
+  position: relative;
+  top: -3rem;
   align-items: center;
-  width: 100%;
+  width: 30%;
   background-color: #f8f9fa;
   padding: 20px;
+  margin-left: 1rem;
+  border-radius: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .menu ul {
@@ -129,16 +133,41 @@ h1 {
   margin: 0;
 }
 .menu ul li {
+  text-decoration: none;
   margin: 10px 0;
 }
 .menu ul li a {
+  text-decoration: none;
   color: #333;
+  font-family: "Signika", sans-serif;
   font-size: 18px;
 }
 
+.menu > ul > .scrolling-menu .under-menu {
+  position: absolute;
+  display: none;
+}
+.menu > ul > .scrolling-menu .under-menu > li {
+  margin: 1rem;
+}
+
 /*hover menu-burger*/
-.menu ul li a:hover {
-  text-decoration: underline;
+.menu > ul > .scrolling-menu:hover .under-menu {
+  display: block;
+  position: relative;
+  text-align: left;
+  background-color: #FFF;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+.menu > ul > .scrolling-menu:hover .under-menu li:hover {
+  background-color: #CC4E00;
+  border-radius: 4rem 0.5rem;
+  padding: 0.5rem 1.5rem;
+}
+.menu > ul > .scrolling-menu:hover .under-menu li:hover a {
+  color: #FFF;
 }
 
 .menu.active {
