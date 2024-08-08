@@ -144,7 +144,6 @@ h1 {
 }
 
 .menu > ul > .scrolling-menu .under-menu {
-  position: absolute;
   display: none;
 }
 .menu > ul > .scrolling-menu .under-menu > li {
@@ -152,24 +151,52 @@ h1 {
 }
 
 /*hover menu-burger*/
-.menu > ul > .scrolling-menu:hover .under-menu {
-  display: block;
-  position: relative;
-  text-align: left;
-  background-color: #FFF;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  overflow: hidden;
-}
-.menu > ul > .scrolling-menu:hover .under-menu li:hover {
-  background-color: #CC4E00;
-  border-radius: 4rem 0.5rem;
-  padding: 0.5rem 1.5rem;
-}
-.menu > ul > .scrolling-menu:hover .under-menu li:hover a {
-  color: #FFF;
-}
-
+/*.menu
+    {
+        >ul
+        {
+            >li:hover
+            {
+                background-color: $bg-button-blue;
+                padding: 0.5rem 2rem;
+                border-radius: 4rem .5rem;
+                max-width: 15rem;
+                >a
+                {
+                      color: $text-white;
+                }
+            }
+        }
+    }*/
+/** hover sous-menu**/
+/*.menu
+    {
+        >ul
+        {
+            >.scrolling-menu:hover
+            {
+                .under-menu
+                {
+                    display:block;
+                    position: absolute;
+                    text-align:left;
+                    background-color: $bg-button-blue;
+                    margin: .5rem;
+                    padding: .5rem;
+                    overflow:hidden;
+                    li:hover{
+                        background-color: $bg-button-orange;
+                        border-radius: 4rem .5rem;
+                        padding: 0.5rem 1.5rem;
+                        a
+                        {
+                            color: $text-white;
+                        }
+                    }    
+                }
+            }    
+        }
+    }*/
 .menu.active {
   display: flex;
 }
@@ -198,21 +225,26 @@ h1 {
     display: block;
     width: 100%;
     position: sticky;
-    font-family: "Dancing Script", cursive;
-    font-size: 2rem;
+    margin-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #F2FAFB;
   }
   .menu > ul {
     display: flex;
     text-align: center;
     justify-content: space-around;
+    width: 100%;
     margin-top: 2rem;
-    padding: 1.5rem;
+    padding: 1rem;
     border-top: 2px solid #00A2C7;
     border-bottom: 2px solid #CC4E00;
   }
   .menu ul li a {
     color: #000;
     text-decoration: none;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
     margin: 1rem;
   }
   .menu .login {
@@ -237,6 +269,7 @@ h1 {
   .menu > ul > .scrolling-menu:hover .under-menu {
     display: block;
     text-align: left;
+    position: absolute;
     background-color: #FFF;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -258,7 +291,6 @@ h1 {
   }
   /** Sous-menu masqué **/
   .menu > ul > .scrolling-menu .under-menu {
-    position: absolute;
     display: none;
   }
   .menu > ul > .scrolling-menu .under-menu > li {

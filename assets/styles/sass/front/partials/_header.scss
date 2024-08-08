@@ -81,7 +81,6 @@ h1 {
             {
                 .under-menu 
                 {
-	                position: absolute;
 	                display: none;
 	                
                     >li
@@ -96,10 +95,26 @@ h1 {
 
 /*hover menu-burger*/
 
-.menu ul li:hover {
+/*.menu
+    {
+        >ul
+        {
+            >li:hover
+            {
+                background-color: $bg-button-blue;
+                padding: 0.5rem 2rem;
+                border-radius: 4rem .5rem;
+                max-width: 15rem;
+                >a
+                {
+                      color: $text-white;
+                }
+            }
+        }
+    }*/
     
-}
-.menu
+    /** hover sous-menu**/
+/*.menu
     {
         >ul
         {
@@ -108,9 +123,9 @@ h1 {
                 .under-menu
                 {
                     display:block;
-                    position: relative;
+                    position: absolute;
                     text-align:left;
-                    background-color: #FFF;
+                    background-color: $bg-button-blue;
                     margin: .5rem;
                     padding: .5rem;
                     overflow:hidden;
@@ -126,7 +141,7 @@ h1 {
                 }
             }    
         }
-    }
+    }*/
 
 .menu.active {
     display: flex;
@@ -162,16 +177,19 @@ h1 {
 	    display: block;
         width: 100%; 
         position: sticky;
-        font-family: $font-fami-title;
-        font-size: 2rem;
+        margin-left: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: #F2FAFB;
         
         >ul
         {
             display: flex;
             text-align: center;
             justify-content: space-around;
+            width: 100%;
             margin-top: 2rem;
-            padding: 1.5rem;
+            padding: 1rem;
             border-top: 2px solid $border-blue;
             border-bottom: 2px solid $border-orange;
         }
@@ -185,6 +203,8 @@ h1 {
                 {
                     color: $text-black;
                     text-decoration: none;
+                    font-family: $font-fami-title;
+                    font-size: 1.5rem;
                     margin: 1rem;
                 }
                 
@@ -238,6 +258,7 @@ h1 {
                 {
                     display:block;
                     text-align:left;
+                    position: absolute;
                     background-color: #FFF;
                     margin: .5rem;
                     padding: .5rem;
@@ -280,7 +301,6 @@ h1 {
             {
                 .under-menu 
                 {
-	                position: absolute;
 	                display: none;
 	                
                     >li
