@@ -201,6 +201,10 @@ h1 {
   display: flex;
 }
 
+.menu > ul > .scrolling-menu .under-menu.active {
+  display: block;
+}
+
 /****TABLETTE****/
 @media screen and (min-width: 780px) {
   h1 {
