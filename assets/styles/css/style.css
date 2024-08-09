@@ -103,6 +103,13 @@ h1 {
   width: 50%;
 }
 
+.scrolling-menu > a:after {
+  content: "❯";
+  font-size: 15px;
+  margin-left: 7px;
+  display: inline-block;
+}
+
 .menu-burger {
   cursor: pointer;
 }
@@ -120,8 +127,8 @@ h1 {
   flex-direction: column;
   position: relative;
   top: -3rem;
-  align-items: center;
-  width: 30%;
+  /*align-items: center;*/
+  width: 25%;
   background-color: #f8f9fa;
   padding: 20px;
   margin-left: 1rem;
@@ -138,9 +145,10 @@ h1 {
 }
 .menu ul li a {
   text-decoration: none;
-  color: #333;
+  color: #00A2C7;
   font-family: "Signika", sans-serif;
   font-size: 18px;
+  transform: translate(-50%, -50%);
 }
 
 .menu > ul > .scrolling-menu .under-menu {
@@ -301,6 +309,20 @@ h1 {
     margin: 1rem;
   }
 }
+/* aniamations fléches menu déroulant*/
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+/*animation au survole */
+.scrolling-menu:hover > a:after {
+  animation: rotationFleche 0.2s linear forwards;
+}
+
 /* LAYOUTS */
 /**** MOBILE ****/
 .main-plages {
