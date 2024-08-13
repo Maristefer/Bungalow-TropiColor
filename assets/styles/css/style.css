@@ -323,6 +323,13 @@ h1 {
   animation: rotationFleche 0.2s linear forwards;
 }
 
+footer {
+  display: grid;
+  background: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
+}
+
+/****TABLETTE****/
+/**** DESKTOP ****/
 /* LAYOUTS */
 /**** MOBILE ****/
 .main-plages {
