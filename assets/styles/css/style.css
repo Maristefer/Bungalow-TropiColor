@@ -325,7 +325,11 @@ h1 {
 
 footer {
   display: grid;
+  grid-template-columns: 20% 20% 20%; /*5 colonnes qui fait 20% de l'élément parent*/
+  grid-template-rows: auto;
   background: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
+  justify-content: space-around;
+  align-items: center;
 }
 
 /****TABLETTE****/

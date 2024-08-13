@@ -1,6 +1,10 @@
 footer {
     display:grid;
+    grid-template-columns: 20% 20% 20%;/*5 colonnes qui fait 20% de l'élément parent*/
+    grid-template-rows: auto;
     background: $gradient-bg-footer;
+    justify-content: space-around;
+    align-items: center;
     
 }
 
