@@ -6,6 +6,16 @@ footer {
     justify-content: space-around;
     align-items: center;
     
+    .mention-footer {
+         //grid-row: 2 / 3; /*position entre la 1ere ligne et la 2eme ligne*/
+        grid-column: 1 / 2;
+    }
+    .contact-footer{
+        grid-row: 1 / 3;
+        grid-column: 2 / 3;
+        
+    }
+    
 }
 
 /****TABLETTE****/
