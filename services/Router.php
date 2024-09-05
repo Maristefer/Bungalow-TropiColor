@@ -4,23 +4,25 @@ class Router
 {
     private DiscoveryController $dc;
     private BungalowsController $bc;
+    private DefaultController $dfc;
     
     
     public function __construct()
     {
         $this->dc = new DiscoveryController();
         $this->bc = new BungalowsController();
+        $this->dfc = new DefaultController();
     }
     
     public function handleRequest(array $get): void
     {
         if(!isset($get["route"]))
         {
-            //home();
+            $this->dfc->homepage();
         }
         else if(isset($get["route"]) && $get["route"] === "home")
         {
-             //$this->pc->home(); 
+             $this->dfc->homepage(); 
         }
         else if(isset($get["route"]) && $get["route"] === "discovery")
         {

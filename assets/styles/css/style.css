@@ -446,6 +446,36 @@ h2 {
   }    */
 }
 /**** DESKTOP ****/
+/**** MOBILE ****/
+.banner-home {
+  background-image: url("../../img/accueil.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 4rem 0rem 4rem 0rem;
+}
+
+.title-accueil {
+  color: #FFF;
+  margin-top: 6rem;
+  font-size: 1.6rem;
+}
+
+/****TABLETTE****/
+/**** DESKTOP ****/
+@media screen and (min-width: 980px) {
+  .banner-home {
+    height: 500px;
+  }
+  .title-accueil {
+    color: #FFF;
+    font-size: 2.5rem;
+  }
+}
 /*@import "layouts/teams";
 @import "layouts/team";
 @import "layouts/players";

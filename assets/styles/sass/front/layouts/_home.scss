@@ -1,0 +1,40 @@
+/**** MOBILE ****/
+
+.banner-home {
+    background-image: url('../../img/accueil.png');
+    background-size: cover; // Assurez-vous que l'image couvre bien tout le conteneur
+    background-position: center; // Centrer l'image
+    background-repeat: no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: $border-radius-banner;
+}
+
+.title-accueil {
+    color:$text-white;
+    margin-top: 6rem;
+    font-size: 1.6rem;
+}
+
+/****TABLETTE****/
+
+@media screen and (min-width: 780px){
+    
+    
+}
+
+/**** DESKTOP ****/
+@media screen and (min-width: 980px) {
+    
+.banner-home {
+    height: 500px;
+}
+.title-accueil {
+    color:$text-white;
+    font-size: 2.5rem;
+}
+
+
+}

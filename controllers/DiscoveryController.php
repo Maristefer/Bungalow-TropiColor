@@ -4,7 +4,7 @@ class DiscoveryController extends AbstractController
 {
     public function discovery(): void
     {
-        $this->render("discovery/discovery.html.twig",[]);
+        $this->render("front/discovery/discovery.html.twig",[]);
     }
     
     public function listePlages(): void
@@ -16,7 +16,7 @@ class DiscoveryController extends AbstractController
         
         $plages = $pm->findAllPlages();
         
-        $this->render("discovery/plages.html.twig",[
+        $this->render("front/discovery/plages.html.twig",[
             "plages" =>$plages
             ]);
     }
@@ -29,7 +29,7 @@ class DiscoveryController extends AbstractController
         
         $rivers = $rm->findAllRivers();
         
-        $this->render("discovery/rivers.html.twig",[
+        $this->render("front/discovery/rivers.html.twig",[
             "rivers" =>$rivers
             ]);
     }
@@ -42,7 +42,7 @@ class DiscoveryController extends AbstractController
         
         $restaurants = $rtm->findAllRestaurants();
         
-        $this->render("discovery/restaurants.html.twig",[
+        $this->render("front/discovery/restaurants.html.twig",[
             "restaurants" =>$restaurants
             ]);
     }
@@ -55,7 +55,7 @@ class DiscoveryController extends AbstractController
         
         $hikes = $hm->findAllHikes();
         
-        $this->render("discovery/hikes.html.twig",[
+        $this->render("front/discovery/hikes.html.twig",[
             "hikes"=>$hikes
             ]);
     }
@@ -68,7 +68,7 @@ class DiscoveryController extends AbstractController
         
         $parks = $pkm->findAllParks();
         
-        $this->render("discovery/parks.html.twig",[
+        $this->render("front/discovery/parks.html.twig",[
             "parks"=>$parks
             ]);
     }
@@ -79,7 +79,7 @@ class DiscoveryController extends AbstractController
         
         $visits = $vm->findAllVisits();
         
-        $this->render("discovery/visits.html.twig",[
+        $this->render("front/discovery/visits.html.twig",[
             "visits"=>$visits
             ]);
     }
