@@ -10,7 +10,31 @@
     <section class="home">
         <div class="banner-home">
             <h2 class="title-accueil">Location de bungalow avec voiture pour <br>des vacances en toute sérénité !</h2>
+            <div class="search-form">
+                <form action="" method="get" class="form-search">
+                    <div class="form-group-arrival">
+                        <label for="arrival-date">Date d'arrivée :</label>
+                        <input type="date" class="input-date" id="arrival-date" name="arrival_date" required>
+                    </div>
+                    <div class="form-group-depart">
+                        <label for="departure-date">Date de départ :</label>
+                        <input type="date" class="input-date" id="departure-date" name="departure_date" required>
+                    </div>
+                    <div class="form-group-adults">
+                        <label for="nb-adults">Adultes :</label>
+                        <input type="number" class="input-number" id="nb-adults" name="nb_adults" min="1" value="1" required>
+                    </div>
+                    <div class="form-group-child">
+                        <label for="nb-children">Enfants :</label>
+                        <input type="number" class="input-number" id="nb-children" name="nb_children" min="0" value="0">
+                    </div>
+                    <div class="form-group-button">
+                        <button type="submit" class="btn-search">Rechercher</button>
+                    </div>
+                </form>
+            </div>
         </div>
+        
         
     </section>
     <section class="present">

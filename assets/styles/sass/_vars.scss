@@ -30,8 +30,10 @@ $gradient-bg-footer: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
 
 // ? BORDERS
 
-$border-radius-button: 40px 10px;
+$border-input: 2px solid #00A2C7;
 $border-button-blue: 4px solid #00A2C7;
+
+$border-radius-button: 40px 10px;
 $border-radius-card: 4rem 1rem 1rem 1rem;
 $border-radius-banner: 4rem 0rem 4rem 0rem;
 
@@ -50,6 +52,21 @@ $border-radius-banner: 4rem 0rem 4rem 0rem;
     font-family: $font-family;
     color:$color;
     
+}
+
+@mixin form($color: $text-orange, $font-family: $font-fami-text, $border: $border-input )
+{
+    font-family: $font-family;
+    color:$color;
+    border: $border;
+    border-radius: .4rem;
+}
+
+@mixin input($font-family: $font-fami-text, $border: $border-input )
+{
+    font-family: $font-family;
+    border: $border;
+    border-radius: .4rem;
 }
 
 /*@mixin title($font-size: 1.6rem , $color: $title-orange, $font-family:$font-fami-title)
