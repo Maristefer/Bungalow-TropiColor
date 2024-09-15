@@ -187,34 +187,39 @@
     
     .form-search {
         display: grid;
-        grid-template-columns: 25% 25% 10% 10% 15%;/*5 colonnes qui fait 30% de l'élément parent*/
+        grid-template-columns: 20% 20% 10% 10% 15%;/*5 colonnes qui fait 30% de l'élément parent*/
         grid-template-rows: auto;
         column-gap: 0.5rem;
         font-size: 1rem;
         justify-content: space-evenly;
         justify-items: center;
         align-content: center;
-        height: auto;
+        align-items: center;
+        height: 50%;
         
         .form-group-arrival {
             grid-row: 1 / 2;
             grid-column: 1 / 2;
             margin: 1rem 0rem;
+            height: 60%;
         }
         .form-group-depart {
             grid-row: 1 / 2;
             grid-column: 2 / 3;
             margin: 1rem 0rem;
+            height: 60%;
         }
         .form-group-adults {
             grid-row: 1 / 2;
             grid-column: 3 / 4;
             margin: 1rem 0rem;
+            height: 60%;
         }
         .form-group-child {
             grid-row: 1 / 2;
             grid-column: 4 / 5;
            margin: 1rem 0rem;
+           height: 60%;
         }
         .form-group-button {
             grid-row: 1 / 2;
@@ -240,8 +245,8 @@
 
 .btn-search {
     
-    padding: 0rem 1.5rem;
-    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    font-size: 1.3rem;
 }
 
 }
