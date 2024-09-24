@@ -42,7 +42,7 @@ h2{
 
 .details-plage 
 {
-    h3{
+    .title-card-h3{
         @include title($color: $text-blue);
         text-align: center;
         font-size: 1.5rem;

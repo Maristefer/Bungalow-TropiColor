@@ -403,7 +403,7 @@ h2 {
   border-radius: 4rem 0.5rem;
 }
 
-.details-plage h3 {
+.details-plage .title-card-h3 {
   font-family: "Dancing Script", cursive;
   color: #00A2C7;
   font-weight: 700;
@@ -535,6 +535,45 @@ h2 {
   font-family: "Signika", sans-serif;
   color: #FFF;
   padding: 0rem 1rem;
+}
+
+/*CARD*/
+.home-bunga-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+.home-bunga-container .card-home-bunga {
+  background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
+  border-radius: 4rem 1rem 1rem 1rem;
+  max-width: 80%;
+  margin-bottom: 1rem;
+}
+.home-bunga-container .card-home-bunga img {
+  width: 100%;
+  border-radius: 4rem 0.5rem;
+}
+
+.details-bunga .title-card-h3 {
+  font-family: "Dancing Script", cursive;
+  color: #00A2C7;
+  font-weight: 700;
+  text-align: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.details-bunga p {
+  font-family: "Signika", sans-serif;
+  color: #000;
+  margin: 1rem;
+}
+.details-bunga .btn-card {
+  border: 4px solid #00A2C7;
+}
+.details-bunga .btn-card a {
+  text-decoration: none;
+  color: #CC4E00;
 }
 
 /****TABLETTE****/
