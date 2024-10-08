@@ -4,7 +4,7 @@ class Bungalows
 {
     private ? int $id =null;
 
-    public function __construct(private string $name, private string $description, private int $photo_id, private string $capacite, private int $prix, private int $vehicule_id, private string $surface)
+    public function __construct(private string $name, private string $description, private int $photo_id, private string $capacity, private int $price, private int $car_id, private string $surface)
     {
         
     }
@@ -50,34 +50,34 @@ class Bungalows
         $this->photo_id = $photo_id;
     }
 
-    public function getCapacite(): string
+    public function getCapacity(): string
     {
-        return $this->capacite;
+        return $this->capacity;
     }
 
-    public function setCapacite(string $capacite): void
+    public function setCapacity(string $capacity): void
     {
-        $this->capacite = $capacite;
+        $this->capacity = $capacity;
     }
 
-    public function getPrix(): int
+    public function getPrice(): int
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix(int $prix): void
+    public function setPrice(int $price): void
     {
-        $this->prix = $prix;
+        $this->price = $price;
     }
 
-    public function getVehicule_id(): int
+    public function getCar_id(): int
     {
-        return $this->vehicule_id;
+        return $this->car_id;
     }
 
-    public function setVehicule_id(int $vehicule_id): void
+    public function setCar_id(int $car_id): void
     {
-        $this->vehicule_id = $vehicule_id;
+        $this->car_id = $car_id;
     }
 
     public function getSurface(): string
