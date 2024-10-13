@@ -5,6 +5,7 @@ class Router
     private DiscoveryController $dc;
     private BungalowsController $bc;
     private DefaultController $dfc;
+    private AuthController $ac;
     
     
     public function __construct()
@@ -12,6 +13,7 @@ class Router
         $this->dc = new DiscoveryController();
         $this->bc = new BungalowsController();
         $this->dfc = new DefaultController();
+        $this->ac = new AuthController();
     }
     
     public function handleRequest(array $get): void
@@ -55,6 +57,26 @@ class Router
         else if(isset($get["route"]) && $get["route"] === "bungalows")
         {
             $this->bc->listeBungalows();
+        }
+         else if(isset($get["route"]) && $get["route"] === "inscription")
+        {
+            $this->ac->register();
+        }
+         else if(isset($get["route"]) && $get["route"] === "check-inscription")
+        {
+            $this->ac->checkRegister();
+        }
+         else if(isset($get["route"]) && $get["route"] === "connexion")
+        {
+            $this->ac->login();
+        }
+         else if(isset($get["route"]) && $get["route"] === "check-connexion")
+        {
+            $this->ac->checkLogin();
+        }
+        else if(isset($get["route"]) && $get["route"] === "deconnexion")
+        {
+            $this->ac->logout();
         }
     }
 }
