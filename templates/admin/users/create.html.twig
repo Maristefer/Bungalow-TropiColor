@@ -1,0 +1,43 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <main class="container py-5">
+        <h1 class="mb-4">Ajouter un utilisateur</h1>
+        <div>
+            <p>{{session.error_message}}</p>
+        </div>
+        <form action="index.php?route=admin-check-create-user" method="post">
+            <input type="hidden" id="csrf_token" name="csrf_token" value="{{ session.csrf_token }}" />
+            <fieldset class="mb-2">
+                <label for="email" class="form-label">
+                    Email
+                </label>
+                <input type="email" name="email" id="email" required class="form-control"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="password" class="form-label">
+                    Mot de passe
+                </label>
+                <input type="password" name="password" id="password" required class="form-control"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="confirm_password" class="form-label">
+                    Confirmation du mot de passe
+                </label>
+                <input type="password" name="confirm_password" id="confirm_password" required class="form-control"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="role" class="form-label">
+                    Rôle
+                </label>
+                <select class="form-select" id="role" name="role">
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="btn btn-primary">Ajouter l'utilisateur</button>
+            </fieldset>
+        </form>
+    </main>
+{% endblock %}

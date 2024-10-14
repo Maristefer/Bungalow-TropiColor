@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <main class="container py-5">
+        <h1 class="mb-4">Détails d'un utilisateur</h1>
+        <article>
+            <dl>
+                <dt>
+                    Email
+                </dt>
+                <dd>
+                    {{ user.email }}
+                </dd>
+                <dt>
+                    Role
+                </dt>
+                <dd>
+                    {{ user.role }}
+                </dd>
+            </dl>
+        </article>
+        <!--<a href="index.php?route=admin-list-user" class="btn btn-primary">Retour à la liste des utilisateurs</a>-->
+    </main>
+{% endblock %}
