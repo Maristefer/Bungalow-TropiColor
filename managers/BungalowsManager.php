@@ -23,7 +23,7 @@ class BungalowsManager extends AbstractManager
                 $item["photo_id"],
                 $item["capacity"],
                 $item["price"],
-                $item["care_id"],
+                $item["car_id"],
                 $item["surface"]
             );
             $bungalow->setId($item["id"]);
