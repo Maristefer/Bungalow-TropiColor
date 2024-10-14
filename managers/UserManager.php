@@ -11,15 +11,19 @@ class UserManager extends AbstractManager {
     //classe User en paramètre
     public function createUser(User $user) : User
     {
-        $query = $this->db->prepare('INSERT INTO users (id, email, password, role) VALUES (NULL, :email, :password, :role)');
+        $query = $this->db->prepare('INSERT INTO users (id, last_name, first_name, email, password, role) VALUES (NULL, :last_name, :first_name, :email, :password, :role)');
         $parameters = [
+            "last_name" => $user->getLast_name(),
+            "first_name" => $user->getFirst_name(),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
             "role" => $user->getRole(),
         ];
 
+        // Exécution de la requête SQL
         $query->execute($parameters);
         
+        // Récupérer l'ID du dernier utilisateur inséré
         $user->setId($this->db->lastInsertId());
 
         return $user;

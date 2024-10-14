@@ -11,7 +11,7 @@ class AuthController extends AbstractController {
     
     public function register() : void
     {
-        $this->render('front/register.html.twig', []);
+        $this->render('front/auth/register.html.twig', []);
     }
     
     /*$password = password_hash("test", PASSWORD_BCRYPT);
@@ -88,7 +88,7 @@ class AuthController extends AbstractController {
     
     public function login() : void
     {
-        $this->render('front/login.html.twig', []);
+        $this->render('front/auth/login.html.twig', []);
     }
     
    //méthode qui doit vérifier ce qui a été envoyé par le formulaire de connexion et connecter l'utilisateur dans la session si les informations sont correctes.
