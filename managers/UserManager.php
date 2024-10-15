@@ -15,7 +15,7 @@ class UserManager extends AbstractManager {
         $parameters = [
             "last_name" => $user->getLast_name(),
             "first_name" => $user->getFirst_name(),
-            "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
+            "date_of_birth" => $user->getDate_of_birth(),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
             "adress_id" => $user->getAdress_id(),
@@ -45,7 +45,7 @@ class UserManager extends AbstractManager {
 
         if($user)
         {
-            $item = new User($user["email"], $user["password"], $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
             $item->setId($user["id"]);
             
             return $item;
@@ -67,7 +67,7 @@ class UserManager extends AbstractManager {
         $userList = [];
         foreach ($users as $user) 
         {
-            $item = new User($user["email"], $user["password"], $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
             $item->setId($user["id"]);
             $userList[] = $item;
         }
@@ -87,7 +87,7 @@ class UserManager extends AbstractManager {
         
         if ($user) 
         {
-        $userInstance = new User($user["email"], $user["password"], $user["role"]);
+        $userInstance = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
         $userInstance->setId($user["id"]);
         
         return $userInstance;
@@ -102,10 +102,15 @@ class UserManager extends AbstractManager {
     //Méthode pour modifier un utilisateur
     public function updateUser(User $user) : User
     {
-        $query = $this->db->prepare('UPDATE users SET email = :email, password = :password, role = :role WHERE id = :id');
+        $query = $this->db->prepare('UPDATE users SET last_name = :last_name, first_name= :first_name, date_of_birth= :date_of_birth, email = :email, password = :password, adress_id= :adress_id, phone= :phone, role = :role WHERE id = :id');
         $parameters = [
-            "email" => $user->getEmail(),
+            "last_name" => $user->getLast_name(),
+            "first_name" => $user->getFirst_name(),
+            "date_of_birth" => $user->getDate_of_birth(),
             "password" => $user->getPassword(),
+            "email" => $user->getEmail(),
+            "adress_id" => $user->getAdress_id(),
+            "phone" => $user->getPhone(),
             "role" => $user->getRole(),
             "id" => $user->getId(),
             ];
