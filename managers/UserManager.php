@@ -15,7 +15,7 @@ class UserManager extends AbstractManager {
         $parameters = [
             "last_name" => $user->getLast_name(),
             "first_name" => $user->getFirst_name(),
-            "date_of_birth" => $user->getDate_of_birth(),
+            "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
             "adress_id" => $user->getAdress_id(),
@@ -45,7 +45,7 @@ class UserManager extends AbstractManager {
 
         if($user)
         {
-            $item = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
             $item->setId($user["id"]);
             
             return $item;
@@ -67,7 +67,7 @@ class UserManager extends AbstractManager {
         $userList = [];
         foreach ($users as $user) 
         {
-            $item = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
             $item->setId($user["id"]);
             $userList[] = $item;
         }
@@ -87,7 +87,7 @@ class UserManager extends AbstractManager {
         
         if ($user) 
         {
-        $userInstance = new User($user["last_name"], $user["first_name"], $user["date_of_birth"], $user["email"], $user["password"], $user["adress_id"], $user["phone"], $user["role"]);
+        $userInstance = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
         $userInstance->setId($user["id"]);
         
         return $userInstance;
@@ -106,7 +106,7 @@ class UserManager extends AbstractManager {
         $parameters = [
             "last_name" => $user->getLast_name(),
             "first_name" => $user->getFirst_name(),
-            "date_of_birth" => $user->getDate_of_birth(),
+            "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
             "adress_id" => $user->getAdress_id(),

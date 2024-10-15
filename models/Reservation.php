@@ -1,10 +1,10 @@
 <?php
 
-class Bungalows
+class Reservation
 {
     private ? int $id = null;
 
-    public function __construct(private string $name, private string $description, private int $photo_id, private int $capacity, private int $price, private ? int $car_id, private string $surface)
+    public function __construct(private int $user_id, private int $bungalow_id, private DateTime $start_date, private DateTime $end_date, private DateTime $created_at, private int $total_price)
     {
         
     }
@@ -75,7 +75,7 @@ class Bungalows
         return $this->car_id;
     }
 
-    public function setCar_id(?int $car_id): void
+    public function setCar_id(int $car_id): void
     {
         $this->car_id = $car_id;
     }

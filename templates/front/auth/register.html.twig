@@ -7,24 +7,61 @@
         </div>
         <form action="index.php?route=check-inscription" method="post">
             <input type="hidden" id="csrf_token" name="csrf_token" value="{{session.csrf_token}}" />
+             <fieldset>
+                <label for="last_name" class="form-label">
+                    Nom
+                </label>
+                <input type="text" name="last_name" id="last_name" required class="form-control"/>
+            </fieldset>
+            
+             <fieldset>
+                <label for="first_name" class="form-label">
+                    Prénom
+                </label>
+                <input type="text" name="first_name" id="first_name" required class="form-control"/>
+            </fieldset>
+            
+             <fieldset>
+                <label for="date_of_birth" class="form-label">
+                    Date de naissance
+                </label>
+                <input type="date" name="date_of_birth" id="date_of_birth" required class="form-control"/>
+            </fieldset>
+           <!-- <fieldset>
+                <label for="adress_id" class="form-label">
+                    Adresse
+                </label>
+                <input type="text" name="adress_id" id="adress_id" required class="form-control"/>
+            </fieldset> -->
+
+            <fieldset>
+                <label for="phone" class="form-label">
+                    Téléphone
+                </label>
+                <input type="tel" name="phone" id="phone" required class="form-control"/>
+            </fieldset>
+            
             <fieldset>
                 <label for="email" class="form-label">
                     Email
                 </label>
                 <input type="email" name="email" id="email" required class="form-control"/>
             </fieldset>
+            
             <fieldset>
                 <label for="password" class="form-label">
                     Mot de passe
                 </label>
                 <input type="password" name="password" id="password" required class="form-control"/>
             </fieldset>
+            
             <fieldset>
                 <label for="confirm_password" class="form-label">
                     Confirmer le mot de passe
                 </label>
                 <input type="password" name="confirm_password" id="confirm_password" required class="form-control"/>
             </fieldset>
+            
             <fieldset class="mt-3">
                 <button type="submit" class="btn btn-primary">Créer un compte</button>
             </fieldset>
