@@ -11,14 +11,14 @@ class UserManager extends AbstractManager {
     //classe User en paramètre
     public function createUser(User $user) : User
     {
-        $query = $this->db->prepare('INSERT INTO users (id, last_name, first_name, date_of_birth, email, password, adress_id, phone, created_at, role) VALUES (NULL, :last_name, :first_name, :date_of_birth, :email, :password, :adress_id, :phone, NOW(), :role)');
+        $query = $this->db->prepare('INSERT INTO users (id, last_name, first_name, date_of_birth, email, password, address_id, phone, created_at, role) VALUES (NULL, :last_name, :first_name, :date_of_birth, :email, :password, :address_id, :phone, NOW(), :role)');
         $parameters = [
             "last_name" => $user->getLast_name(),
             "first_name" => $user->getFirst_name(),
             "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
-            "adress_id" => $user->getAdress_id(),
+            "address_id" => $user->getAddress_id(),
             "phone" => $user->getPhone(),
             "role" => $user->getRole(),
         ];
@@ -45,7 +45,7 @@ class UserManager extends AbstractManager {
 
         if($user)
         {
-            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["address_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
             $item->setId($user["id"]);
             
             return $item;
@@ -67,7 +67,7 @@ class UserManager extends AbstractManager {
         $userList = [];
         foreach ($users as $user) 
         {
-            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
+            $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["address_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
             $item->setId($user["id"]);
             $userList[] = $item;
         }
@@ -87,7 +87,7 @@ class UserManager extends AbstractManager {
         
         if ($user) 
         {
-        $userInstance = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["adress_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
+        $userInstance = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["address_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);
         $userInstance->setId($user["id"]);
         
         return $userInstance;
@@ -102,14 +102,14 @@ class UserManager extends AbstractManager {
     //Méthode pour modifier un utilisateur
     public function updateUser(User $user) : User
     {
-        $query = $this->db->prepare('UPDATE users SET last_name = :last_name, first_name= :first_name, date_of_birth= :date_of_birth, email = :email, password = :password, adress_id= :adress_id, phone= :phone, role = :role WHERE id = :id');
+        $query = $this->db->prepare('UPDATE users SET last_name = :last_name, first_name= :first_name, date_of_birth= :date_of_birth, email = :email, password = :password, address_id= :address_id, phone= :phone, role = :role WHERE id = :id');
         $parameters = [
             "last_name" => $user->getLast_name(),
             "first_name" => $user->getFirst_name(),
             "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
-            "adress_id" => $user->getAdress_id(),
+            "address_id" => $user->getAddress_id(),
             "phone" => $user->getPhone(),
             "role" => $user->getRole(),
             "id" => $user->getId(),

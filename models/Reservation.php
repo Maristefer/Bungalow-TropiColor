@@ -19,74 +19,63 @@ class Reservation
         $this -> id = $id;
     }
 
-    public function getName(): string
+   public function getBungalowId(): int
     {
-        return $this->name;
+        return $this->bungalow_id;
     }
 
-    public function setName(string $name): void
+    public function setBungalowId(int $bungalow_id): void
     {
-        $this->name = $name;
-
+        $this->bungalow_id = $bungalow_id;
     }
 
-    public function getDescription(): string
+    public function getUserId(): int
     {
-        return $this->description;
+        return $this->user_id;
     }
 
-    public function setDescription(string $description): void
+    public function setUserId(int $user_id): void
     {
-        $this->description = $description;
+        $this->user_id = $user_id;
+    }
+    
+    public function getStartDate(): DateTime
+    {
+        return $this->start_date;
     }
 
-    public function getPhoto_id(): int
+    public function setStartDate(DateTime $start_date): void
     {
-        return $this->photo_id;
+        $this->start_date = $start_date;
     }
 
-    public function setPhoto_id(int $photo_id): void
+    public function getEndDate(): DateTime
     {
-        $this->photo_id = $photo_id;
+        return $this->end_date;
     }
 
-    public function getCapacity(): int
+    public function setEndDate(DateTime $end_date): void
     {
-        return $this->capacity;
+        $this->end_date = $end_date;
+    }
+    
+     public function getCreatedAt(): DateTime
+    {
+        return $this->created_at;
     }
 
-    public function setCapacity(int $capacity): void
+    public function setCreatedAt(DateTime $created_at): void
     {
-        $this->capacity = $capacity;
+        $this->created_at = $created_at;
+    }
+    
+    public function getTotalPrice(): int
+    {
+        return $this->total_price;
     }
 
-    public function getPrice(): int
+    public function setTotalPrice(int $total_price): void
     {
-        return $this->price;
-    }
-
-    public function setPrice(int $price): void
-    {
-        $this->price = $price;
-    }
-
-    public function getCar_id(): ? int
-    {
-        return $this->car_id;
-    }
-
-    public function setCar_id(int $car_id): void
-    {
-        $this->car_id = $car_id;
-    }
-
-    public function getSurface(): string
-    {
-        return $this->surface;
-    }
-
-    public function setSurface(string $surface): void
-    {
-        $this->surface = $surface;
+        $this->total_price = $total_price;
     }
 }

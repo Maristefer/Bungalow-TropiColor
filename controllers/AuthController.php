@@ -23,7 +23,7 @@ class AuthController extends AbstractController {
         //Si ce n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
         if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) 
         && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"])
-        && isset($_POST["adress_id"]) && isset($_POST["phone"]))
+        && isset($_POST["address_id"]) && isset($_POST["phone"]))
         {
             $tokenManager = new CSRFTokenManager();
             
@@ -69,11 +69,11 @@ class AuthController extends AbstractController {
                             
                                 $email = htmlspecialchars($_POST["email"]);
                                 $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-                                $adress_id = !empty($_POST["adress_id"]) ? (int)$_POST["adress_id"] : null;
+                                $address_id = !empty($_POST["address_id"]) ? (int)$_POST["address_id"] : null;
                                 $phone = htmlspecialchars($_POST["phone"]);
                             
                                 // Créer l'instance de l'utilisateur avec tous les champs
-                                $user = new User($lastname, $firstname, new DateTime($date_of_birth_formatted), $email, $password, $adress_id, $phone, 'USER');
+                                $user = new User($lastname, $firstname, new DateTime($date_of_birth_formatted), $email, $password, $address_id, $phone, 'USER');
 
                                 $um->createUser($user);// Ajoute l'utilisateur à la base de données
 

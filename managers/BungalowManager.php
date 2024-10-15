@@ -1,6 +1,6 @@
 <?php
 
-class BungalowsManager extends AbstractManager
+class BungalowManager extends AbstractManager
 {
     public function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 
-class Bungalows
+class Bungalow
 {
     private ? int $id = null;
 
