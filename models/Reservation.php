@@ -18,6 +18,16 @@ class Reservation
     {
         $this -> id = $id;
     }
+    
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(int $user_id): void
+    {
+        $this->user_id = $user_id;
+    }
 
    public function getBungalowId(): int
     {
@@ -29,15 +39,6 @@ class Reservation
         $this->bungalow_id = $bungalow_id;
     }
 
-    public function getUserId(): int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): void
-    {
-        $this->user_id = $user_id;
-    }
     
     public function getStartDate(): DateTime
     {

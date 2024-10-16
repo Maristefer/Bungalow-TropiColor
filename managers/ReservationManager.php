@@ -10,110 +10,124 @@ class ReservationManager extends AbstractManager
     // Créer un bungalow
     public function createReservation(Reservation $reservation) : Reservation
     {
-        $query = $this->db->prepare('INSERT INTO bungalows (id, name, description, photo_id, capacity, price, car_id, surface) VALUES (NULL, :name, :description, :photo_id, :capacity, :price, :car_id, :surface)');
+        $query = $this->db->prepare('INSERT INTO reservation (id, user_id, bungalow_id, start_date, end_date, created_at, total_price) VALUES (NULL, :user_id, :bungalow_id, :start_date, :end_date, :created_at, :total_price)');
         $parameters = [
-            "name" => $bungalow->getName(),
-            "description" => $bungalow->getDescription(),
-            "photo_id" => $bungalow->getPhoto_id(),
-            "capacity" => $bungalow->getCapacity(),
-            "price" => $bungalow->getPrice(),
-            "car_id" => $bungalow->getCar_id(),
-            "surface" => $bungalow->getSurface(),
+            "user_id" => $reservation->getUserId(),
+            "bungalow_id" => $reservation->getBungalowId(),
+            "start_date" => $reservation->getStartDate(),
+            "end_date" => $reservation->getEndDate(),
+            "created_at" => $reservation->getCreatedAt(),
+            "total_price" => $reservation->getTotalPrice(),
         ];
 
         // Exécution de la requête SQL
         $query->execute($parameters);
         
-        // Récupérer l'ID du dernier bungalow inséré
-        $bungalow->setId($this->db->lastInsertId());
+        // Récupérer l'ID du dernier reservation inséré
+        $reservation->setId($this->db->lastInsertId());
 
-        return $bungalow;
+        return  $reservation;
     }
 
-    //Récupère tous les bungalows
-    public function findAllBungalows(): array
+    // Récupérer toutes les réservations
+    public function findAllReservations(): array
     {
-        $bungalows = [];
+        $reservations = [];
 
-        $query = $this->db->prepare("SELECT * FROM bungalows");
+        $query = $this->db->prepare("SELECT * FROM reservation");
         $query->execute();
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as $item) {
-            $bungalow = new Bungalows(
-                $item["name"],
-                $item["description"],
-                $item["photo_id"],
-                $item["capacity"],
-                $item["price"],
-                $item["car_id"],
-                $item["surface"]
+            $reservation = new Reservation(
+                $item["user_id"],
+                $item["bungalow_id"],
+                $item["start_date"],
+                $item["end_date"],
+                $item["created_at"],
+                $item["total_price"]
             );
-            $bungalow->setId($item["id"]);
+            $reservation->setId($item["id"]);
 
-            $bungalows[] = $bungalow;
+            $reservations[] = $reservation;
         }
 
-        return $bungalows;
+        return $reservations;
     }
 
-    // Récupérer un bungalow par son ID
-    public function findBungalowById(int $id): ? Bungalow
+    // Récupérer une réservation par son ID
+    public function findReservationById(int $id): ?Reservation
     {
-        $query = $this->db->prepare("SELECT * FROM bungalows WHERE id = :id");
+        $query = $this->db->prepare("SELECT * FROM reservation WHERE id = :id");
         $query->execute(['id' => $id]);
 
         $item = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($item) {
-            $bungalow = new Bungalow(
-                $item["name"],
-                $item["description"],
-                $item["photo_id"],
-                $item["capacity"],
-                $item["price"],
-                $item["car_id"],
-                $item["surface"]
+            $reservation = new Reservation(
+                $item["user_id"],
+                $item["bungalow_id"],
+                $item["start_date"],
+                $item["end_date"],
+                $item["created_at"],
+                $item["total_price"]
             );
-            $bungalow->setId($item["id"]);
+            $reservation->setId($item["id"]);
 
-            return $bungalow;
+            return $reservation;
         }
 
         return null;
-    }    
+    }
     
-    // Mettre à jour un bungalow
-    public function updateBungalow(Bungalow $bungalow): Bungalow
+    // Mettre à jour une réservation
+    public function updateReservation(Reservation $reservation): Reservation
     {
-       $query = $this->db->prepare('
-                UPDATE bungalows 
-                SET name = :name, description = :description, photo_id = :photo_id, 
-                capacity = :capacity, price = :price, car_id = :car_id, surface = :surface 
-                WHERE id = :id'
-            );
-            $parameters = [
-                "name" => $bungalow->getName(),
-                "description" => $bungalow->getDescription(),
-                "photo_id" => $bungalow->getPhoto_id(),
-                "capacity" => $bungalow->getCapacity(),
-                "price" => $bungalow->getPrice(),
-                "car_id" => $bungalow->getCar_id(),
-                "surface" => $bungalow->getSurface(),
-                "id" => $bungalow->getId(),
-            ];
-            
-            $query->execute($parameters);
+        $query = $this->db->prepare('
+            UPDATE reservation 
+            SET user_id = :user_id, bungalow_id = :bungalow_id, start_date = :start_date, 
+            end_date = :end_date, created_at = :created_at, total_price = :total_price 
+            WHERE id = :id'
+        );
+        $parameters = [
+            "user_id" => $reservation->getUserId(),
+            "bungalow_id" => $reservation->getBungalowId(),
+            "start_date" => $reservation->getStartDate(),
+            "end_date" => $reservation->getEndDate(),
+            "created_at" => $reservation->getCreatedAt(),
+            "total_price" => $reservation->getTotalPrice(),
+            "id" => $reservation->getId(),
+        ];
 
-            return $bungalow; 
+        return $query->execute($parameters);
     }
     
-    // Supprimer un bungalow
-    public function deleteBungalow(int $id): void
+    // Supprimer une réservation
+    public function deleteReservation(int $id): bool
     {
-        $query = $this->db->prepare("DELETE FROM bungalows WHERE id = :id");
-        
-            return $query->execute(["id" => $id]);
+        $query = $this->db->prepare("DELETE FROM reservations WHERE id = :id");
+        return $query->execute(["id" => $id]);
     }
+
+    // Vérifier la disponibilité d'un bungalow sur une période donnée
+    /*public function isBungalowAvailable(int $bungalowId, string $startDate, string $endDate): bool
+    {
+        $query = $this->db->prepare('
+            SELECT COUNT(*) FROM reservation 
+            WHERE bungalow_id = :bungalow_id 
+            AND (start_date <= :end_date AND end_date >= :start_date)'
+        );
+        $parameters = [
+            "bungalow_id" => $bungalowId,
+            "start_date" => $startDate,
+            "end_date" => $endDate,
+        ];
+
+        $query->execute($parameters);
+        $count = $query->fetchColumn();
+
+        // Si le nombre est 0, cela signifie qu'il n'y a pas de réservation chevauchant cette période
+        return $count == 0;
+    }*/
 }
