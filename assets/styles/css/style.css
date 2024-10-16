@@ -423,6 +423,14 @@ footer .contact-footer {
   h1 {
     font-size: 2.5rem;
   }
+  .menu-auth {
+    /*align-items: center;*/
+    width: 10%;
+    /*padding: 20px;
+    margin-left: 1rem;*/
+    position: relative;
+    left: 105rem;
+  }
 }
 /**** DESKTOP ****/
 @media screen and (min-width: 980px) {
@@ -892,6 +900,43 @@ h2 {
     font-size: 1.3rem;
   }
 }
+.register-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+.register-form .form-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Signika", sans-serif;
+  color: #CC4E00;
+  border: 2px solid #00A2C7;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
+  row-gap: 1rem;
+  padding-top: 1rem;
+  width: 50%;
+}
+.register-form .form-register .form-group-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.register-form .form-register .form-group-register .form-control {
+  font-family: "Signika", sans-serif;
+  border: 2px solid #00A2C7;
+  border-radius: 0.4rem;
+  margin-top: 0.5rem;
+  width: 50%;
+}
+
 /*@import "layouts/teams";
 @import "layouts/team";
 @import "layouts/players";
