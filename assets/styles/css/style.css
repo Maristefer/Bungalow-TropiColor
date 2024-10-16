@@ -362,6 +362,173 @@ footer .contact-footer {
 
 /****TABLETTE****/
 /**** DESKTOP ****/
+.header-auth {
+  background-color: #F2FAFB;
+  padding-bottom: 1rem;
+}
+
+/*BANDE LOGO*/
+.title-auth {
+  /*color: $title-orange;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;*/
+  font-family: "Dancing Script", cursive;
+  color: #CC4E00;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.block-header-auth {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fig-logo-auth {
+  text-align: center;
+  width: 10%;
+}
+.fig-logo-auth .logo-auth {
+  width: 50%;
+}
+
+.menu-auth {
+  /*align-items: center;*/
+  width: 10%;
+  /*padding: 20px;
+  margin-left: 1rem;*/
+  position: relative;
+  left: 105rem;
+}
+.menu-auth .ul-auth {
+  padding: 0;
+  margin: 0;
+}
+.menu-auth .ul-auth .li-auth {
+  text-decoration: none;
+  margin: 10px 0;
+}
+.menu-auth .ul-auth .li-auth .a-auth {
+  text-decoration: none;
+  color: #00A2C7;
+  font-family: "Signika", sans-serif;
+  font-size: 18px;
+}
+
+/****TABLETTE****/
+@media screen and (min-width: 780px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+/**** DESKTOP ****/
+@media screen and (min-width: 980px) {
+  .menu-b, .img-login {
+    display: none;
+  }
+  h1 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  header {
+    padding-bottom: 0;
+    border-bottom: none;
+    position: sticky;
+    top: 0.1rem;
+  }
+  /***MENU***/
+  .menu {
+    display: block;
+    width: 100%;
+    position: sticky;
+    margin-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #F2FAFB;
+  }
+  .menu > ul {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1rem;
+    border-top: 2px solid #00A2C7;
+    border-bottom: 2px solid #CC4E00;
+  }
+  .menu ul li a {
+    color: #000;
+    text-decoration: none;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  .menu .login {
+    background-color: #00A2C7;
+    padding: 0.5rem 2rem;
+    border-radius: 4rem 0.5rem;
+    max-width: 19%;
+  }
+  .menu .login .button-login {
+    color: #FFF;
+  }
+  /** Les hovers du MENU **/
+  .menu > ul > li:hover {
+    background-color: #00A2C7;
+    padding: 0.5rem 2rem;
+    border-radius: 4rem 0.5rem;
+    max-width: 15rem;
+  }
+  .menu > ul > li:hover > a {
+    color: #FFF;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu {
+    display: block;
+    text-align: left;
+    position: absolute;
+    background-color: #FFF;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu li:hover {
+    background-color: #CC4E00;
+    border-radius: 4rem 0.5rem;
+    padding: 0.5rem 1.5rem;
+  }
+  .menu > ul > .scrolling-menu:hover .under-menu li:hover a {
+    color: #FFF;
+  }
+  .menu .login:hover {
+    background-color: #CC4E00;
+    padding: 0.5rem 2rem;
+    border-radius: 4rem 0.5rem;
+    width: 15rem;
+  }
+  /** Sous-menu masqué **/
+  .menu > ul > .scrolling-menu .under-menu {
+    display: none;
+  }
+  .menu > ul > .scrolling-menu .under-menu > li {
+    margin: 1rem;
+  }
+}
+/* aniamations fléches menu déroulant*/
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+/*animation au survole */
+.scrolling-menu:hover > a:after {
+  animation: rotationFleche 0.2s linear forwards;
+}
+
 /* LAYOUTS */
 /**** MOBILE ****/
 .main-plages {
@@ -446,7 +613,7 @@ h2 {
   }    */
 }
 /**** DESKTOP ****/
-/**** MOBILE ****/
+/**** MOBILE first ****/
 .banner-home {
   background-image: url("../../img/accueil.png");
   background-size: cover;

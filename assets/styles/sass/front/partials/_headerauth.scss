@@ -1,0 +1,240 @@
+.header-auth {
+    background-color: $bg-header;
+    padding-bottom: 1rem;
+
+}
+
+/*BANDE LOGO*/
+.title-auth {
+    /*color: $title-orange;
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;*/
+    @include title;
+    font-size: 1.5rem;
+    
+}
+
+.block-header-auth{
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.fig-logo-auth{
+    text-align: center;
+    width: 10%;
+   .logo-auth {
+    width: 50%;
+    }
+}
+
+
+.menu-auth{
+    /*align-items: center;*/
+    width: 10%;
+    /*padding: 20px;
+    margin-left: 1rem;*/
+    position: relative;
+    left: 105rem;
+    
+    .ul-auth{
+        padding: 0;
+        margin: 0;
+        .li-auth{
+            text-decoration: none;
+            margin: 10px 0;
+            .a-auth{
+                text-decoration: none;
+                color: $text-blue;
+                font-family: $font-fami-text;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+ 
+/****TABLETTE****/
+
+@media screen and (min-width: 780px){
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/**** DESKTOP ****/
+@media screen and (min-width: 980px) {
+	.menu-b, .img-login {
+	    display:none;
+	}
+	
+	h1 {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+	}
+	
+	header {
+	    padding-bottom: 0;
+        border-bottom: none;
+        position: sticky;
+        top: .1rem;
+    }
+    
+/***MENU***/	
+	.menu 
+	{
+	    display: block;
+        width: 100%; 
+        position: sticky;
+        margin-left: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: #F2FAFB;
+        
+        >ul
+        {
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            width: 100%;
+            padding: 1rem;
+            border-top: 2px solid $border-blue;
+            border-bottom: 2px solid $border-orange;
+        }
+        
+        ul 
+        {
+            li
+            {
+                
+                a
+                {
+                    color: $text-black;
+                    text-decoration: none;
+                    font-family: $font-fami-title;
+                    font-size: 1.5rem;
+                    margin: 1rem;
+                }
+                
+            }
+            
+        }
+    }
+    
+    .menu{
+     .login
+     {
+         background-color: $bg-button-blue;
+             padding: .5rem 2rem;
+             border-radius: 4rem .5rem;
+              max-width:19%;
+         .button-login
+         {
+             color: $text-white;
+         }
+     }
+      
+  }  
+
+/** Les hovers du MENU **/    
+    
+    .menu
+    {
+        >ul
+        {
+            >li:hover
+            {
+                background-color: $bg-button-blue;
+                padding: 0.5rem 2rem;
+                border-radius: 4rem .5rem;
+                max-width: 15rem;
+                >a
+                {
+                      color: $text-white;
+                }
+            }
+        }
+    }
+    
+  .menu
+    {
+        >ul
+        {
+            >.scrolling-menu:hover
+            {
+                .under-menu
+                {
+                    display:block;
+                    text-align:left;
+                    position: absolute;
+                    background-color: #FFF;
+                    margin: .5rem;
+                    padding: .5rem;
+                    overflow:hidden;
+                    li:hover{
+                        background-color: $bg-button-orange;
+                        border-radius: 4rem .5rem;
+                        padding: 0.5rem 1.5rem;
+                        a
+                        {
+                            color: $text-white;
+                        }
+                    }    
+                }
+            }    
+        }
+    }
+    
+    .menu{
+     .login:hover
+     {
+         background-color: $bg-button-orange;
+             padding: .5rem 2rem;
+             border-radius: 4rem .5rem;
+             width:15rem;
+            .button-login
+         {
+             
+         }
+     }
+      
+  }  
+    
+ /** Sous-menu masqué **/   
+    .menu
+    {
+        > ul
+        {
+            >.scrolling-menu
+            {
+                .under-menu 
+                {
+	                display: none;
+	                
+                    >li
+                    {
+                         margin: 1rem;
+
+                    }
+                }        
+            }
+        }    
+    }
+}
+
+/* aniamations fléches menu déroulant*/  
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(90deg);
+  }
+}
+
+/*animation au survole */
+.scrolling-menu:hover > a:after{
+  animation: rotationFleche 0.2s linear forwards;
+}

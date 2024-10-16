@@ -10,10 +10,13 @@
 /* PARTIALS */
 @import "front/partials/header";
 @import "front/partials/footer";
+@import "front/partials/headerauth";
 
 /* LAYOUTS */
 @import "front/layouts/plage";
 @import "front/layouts/home";
+@import "front/layouts/login";
+@import "front/layouts/register";
 /*@import "layouts/teams";
 @import "layouts/team";
 @import "layouts/players";
