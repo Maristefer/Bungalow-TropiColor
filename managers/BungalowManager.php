@@ -6,6 +6,28 @@ class BungalowManager extends AbstractManager
     {
         parent::__construct();
     }
+    
+    public function createBungalow(Bungalow $bungalow) : Bungalow
+    {
+        $query = $this->db->prepare('INSERT INTO bungalows (id, name, description, photo_id, capacity, price, car_id, surface) VALUES (NULL, :name, :description, :photo_id, :capacity, :price, :car_id, :surface)');
+        $parameters = [
+            "name" => $bungalow->getName(),
+            "description" => $bungalow->getDescription(),
+            "photo_id" => $bungalow->getPhoto_id(),
+            "capacity" => $bungalow->getCapacity(),
+            "price" => $bungalow->getPrice(),
+            "car_id" => $bungalow->getCar_id(),
+            "surface" => $bungalow->getSurface(),
+        ];
+
+        // Exécution de la requête SQL
+        $query->execute($parameters);
+        
+        // Récupérer l'ID du dernier bungalow inséré
+        $bungalow->setId($this->db->lastInsertId());
+
+        return $bungalow;
+    }
 
     public function findAllBungalows(): array
     {
