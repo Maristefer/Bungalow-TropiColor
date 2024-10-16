@@ -1,6 +1,6 @@
 <?php
 
-class BungalowManager extends AbstractManager
+class ReservationManager extends AbstractManager
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class BungalowManager extends AbstractManager
     }
     
     // Créer un bungalow
-    public function createBungalow(Bungalow $bungalow) : Bungalow
+    public function createReservation(Reservation $reservation) : Reservation
     {
         $query = $this->db->prepare('INSERT INTO bungalows (id, name, description, photo_id, capacity, price, car_id, surface) VALUES (NULL, :name, :description, :photo_id, :capacity, :price, :car_id, :surface)');
         $parameters = [
