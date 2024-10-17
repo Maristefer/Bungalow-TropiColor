@@ -62,6 +62,10 @@ class Router
         {
             $this->bc->listeBungalows();
         }
+        else if(isset($get["route"]) && $get["route"] === "reservation")
+        {
+            $this->bc->availability();
+        }
          else if(isset($get["route"]) && $get["route"] === "inscription")
         {
             $this->ac->register();

@@ -116,4 +116,67 @@ class BungalowManager extends AbstractManager
         
             return $query->execute(["id" => $id]);
     }
+    
+    /*//Récupérer les bungalows disponible
+    public function getAvailableBungalows($startDate, $endDate, $capacity) {
+        $stmt = $this->pdo->prepare("
+            SELECT * FROM bungalows 
+            WHERE capacity >= :capacity 
+            AND available_from <= :startDate 
+            AND available_to >= :endDate
+        ");
+        $stmt->execute([
+            ':startDate' => $startDate,
+            ':endDate' => $endDate,
+            ':capacity' => $capacity
+        ]);
+        return $stmt->fetchAll();
+    }
+    
+     // Réserver un bungalow
+    public function reserveBungalow($bungalowId, $userId, $startDate, $endDate) {
+        $stmt = $this->pdo->prepare("
+            INSERT INTO reservations (bungalow_id, user_id, start_date, end_date) 
+            VALUES (:bungalow_id, :user_id, :start_date, :end_date)
+        ");
+        $stmt->execute([
+            ':bungalow_id' => $bungalowId,
+            ':user_id' => $userId,
+            ':start_date' => $startDate,
+            ':end_date' => $endDate
+        ]);
+    }*/
+    
+    //Vérifier la disponibilités des bungalows
+    public function checkAvailability(DateTime $startDate, DateTime $endDate, int $capacity): array {
+        $query = $this->db->prepare("
+            SELECT b.*
+            FROM bungalows b
+            WHERE b.capacity >= :capacity
+            AND b.id NOT IN (
+                SELECT r.bungalow_id
+                FROM reservations r
+                WHERE NOT (r.end_date < :startDate OR r.start_date > :endDate)
+            )
+        ");
+
+        $parameters = [
+            ':startDate' => $startDate->format('Y-m-d'),
+            ':endDate' => $endDate->format('Y-m-d'),
+            ':capacity' => $capacity
+        ];
+        $query->execute($parameters);
+        // Utiliser fetchAll pour récupérer plusieurs bungalows
+        $availables = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        $availableBungalows = [];
+        foreach ($availables as $available)
+        {
+            $item = new Bungalow($available['name'], $available['description'], $available['capacity'], $available['price'], $available['car_id'], $available['surface']);
+            $item->setId($available["id"]);
+            $availableBungalows[] = $item;
+        }
+        
+        return $availableBungalows;
+    }
 }

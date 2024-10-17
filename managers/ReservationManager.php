@@ -7,7 +7,7 @@ class ReservationManager extends AbstractManager
         parent::__construct();
     }
     
-    // Créer un bungalow
+    // Créer une réservation
     public function createReservation(Reservation $reservation) : Reservation
     {
         $query = $this->db->prepare('INSERT INTO reservation (id, user_id, bungalow_id, start_date, end_date, created_at, total_price) VALUES (NULL, :user_id, :bungalow_id, :start_date, :end_date, :created_at, :total_price)');

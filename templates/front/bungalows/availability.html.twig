@@ -1,0 +1,35 @@
+{% extends "front/layout.html.twig" %}
+
+{% block title %}
+   Réservation
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<main class="main-reservation">
+    
+        <h2>Available Bungalows</h2>
+
+{% for bungalow in bungalows %}
+    <div>
+        <h3>{{ bungalow.getName() }}</h3>
+        <p>{{ bungalow.getDescription() }}</p>
+        <p>Capacity: {{ bungalow.getCapacity() }}</p>
+        <p>Price per night: {{ bungalow.getPrice() }}</p>
+        <form action="{{ path('reserve', { bungalowId: bungalow.getId() }) }}" method="post">
+            <input type="hidden" name="start_date" value="{{ startDate|date('Y-m-d') }}">
+            <input type="hidden" name="end_date" value="{{ endDate|date('Y-m-d') }}">
+            <input type="hidden" name="total_price" value="{{ bungalow.getPrice() * (endDate|date('z') - startDate|date('z')) }}">
+            <button type="submit">Reserve Now</button>
+        </form>
+    </div>
+{% endfor %}
+
+{% if bungalows is empty %}
+    <p>No bungalows available for the selected dates.</p>
+{% endif %}
+
+     
+</main>
+
+{% endblock %}
