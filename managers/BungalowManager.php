@@ -114,38 +114,13 @@ class BungalowManager extends AbstractManager
     {
         $query = $this->db->prepare("DELETE FROM bungalows WHERE id = :id");
         
-            return $query->execute(["id" => $id]);
+            $parameters = [
+                "id" => $id
+                ];
+                
+            $query->execute($paramters);    
+        
     }
-    
-    /*//Récupérer les bungalows disponible
-    public function getAvailableBungalows($startDate, $endDate, $capacity) {
-        $stmt = $this->pdo->prepare("
-            SELECT * FROM bungalows 
-            WHERE capacity >= :capacity 
-            AND available_from <= :startDate 
-            AND available_to >= :endDate
-        ");
-        $stmt->execute([
-            ':startDate' => $startDate,
-            ':endDate' => $endDate,
-            ':capacity' => $capacity
-        ]);
-        return $stmt->fetchAll();
-    }
-    
-     // Réserver un bungalow
-    public function reserveBungalow($bungalowId, $userId, $startDate, $endDate) {
-        $stmt = $this->pdo->prepare("
-            INSERT INTO reservations (bungalow_id, user_id, start_date, end_date) 
-            VALUES (:bungalow_id, :user_id, :start_date, :end_date)
-        ");
-        $stmt->execute([
-            ':bungalow_id' => $bungalowId,
-            ':user_id' => $userId,
-            ':start_date' => $startDate,
-            ':end_date' => $endDate
-        ]);
-    }*/
     
     //Vérifier la disponibilités des bungalows
     public function checkAvailability(DateTime $startDate, DateTime $endDate, int $capacity): array {

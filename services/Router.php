@@ -3,7 +3,7 @@
 class Router 
 {
     private DiscoveryController $dc;
-    private BungalowsController $bc;
+    private BungalowController $bc;
     private DefaultController $dfc;
     private AuthController $ac;
     private AdminController $adc;
@@ -13,7 +13,7 @@ class Router
     public function __construct()
     {
         $this->dc = new DiscoveryController();
-        $this->bc = new BungalowsController();
+        $this->bc = new BungalowController();
         $this->dfc = new DefaultController();
         $this->ac = new AuthController();
         $this->adc = new AdminController();
@@ -64,7 +64,15 @@ class Router
         }
         else if(isset($get["route"]) && $get["route"] === "reservation")
         {
+            $this->bc->listeBungalows();
+        }
+        else if(isset($get["route"]) && $get["route"] === "disponibilité")
+        {
             $this->bc->availability();
+        }
+        else if(isset($get["route"]) && $get["route"] === "check-disponibilité")
+        {
+            $this->bc->searchAvailability();
         }
          else if(isset($get["route"]) && $get["route"] === "inscription")
         {
