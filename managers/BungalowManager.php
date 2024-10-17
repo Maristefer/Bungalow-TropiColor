@@ -41,7 +41,7 @@ class BungalowManager extends AbstractManager
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as $item) {
-            $bungalow = new Bungalows(
+            $bungalow = new Bungalow(
                 $item["name"],
                 $item["description"],
                 $item["photo_id"],

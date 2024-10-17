@@ -63,11 +63,22 @@ class BungalowController extends AbstractController
         
         $bungalows = $bm->findAllBungalows();
         
-        $this->render("bungalows/bungalows.html.twig",[
+        $this->render("front/bungalows/bungalows.html.twig",[
             "bungalows" =>$bungalows
             ]);
     }
     
+    // Afficher tous les bungalows page réservation
+    public function displayBungalows(): void
+    {
+        $bm = new BungalowManager();
+        
+        $bungalows = $bm->findAllBungalows();
+        
+        $this->render("front/bungalows/availability.html.twig",[
+            "bungalows" =>$bungalows
+            ]);
+    }
     // Afficher un bungalow spécifique
     public function show(int $id)
     {

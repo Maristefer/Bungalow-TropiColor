@@ -4,7 +4,7 @@ class Bungalow
 {
     private ? int $id = null;
 
-    public function __construct(private string $name, private string $description, private int $photo_id, private int $capacity, private int $price, private ? int $car_id, private string $surface)
+    public function __construct(private string $name, private string $description, private ? int $photo_id, private int $capacity, private int $price, private ? int $car_id, private string $surface)
     {
         
     }
@@ -50,7 +50,7 @@ class Bungalow
         $this->photo_id = $photo_id;
     }
 
-    public function getCapacity(): int
+    public function getCapacity(): ? int
     {
         return $this->capacity;
     }

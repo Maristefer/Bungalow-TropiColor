@@ -64,7 +64,7 @@ class Router
         }
         else if(isset($get["route"]) && $get["route"] === "reservation")
         {
-            $this->bc->listeBungalows();
+            $this->bc->displayBungalows();
         }
         else if(isset($get["route"]) && $get["route"] === "disponibilité")
         {
