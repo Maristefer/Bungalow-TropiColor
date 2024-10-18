@@ -55,6 +55,32 @@ class ReservationManager extends AbstractManager
 
         return $reservations;
     }
+    
+    public function isBungalowAvailable(int $bungalowId, string $startDate, string $endDate): bool
+{
+    // Préparer la requête SQL pour vérifier les chevauchements de dates
+    $query = $this->db->prepare('
+        SELECT COUNT(*) FROM reservation 
+        WHERE bungalow_id = :bungalow_id 
+        AND (start_date <= :end_date AND end_date >= :start_date)'
+    );
+    
+    // Paramètres de la requête
+    $parameters = [
+        "bungalow_id" => $bungalowId,
+        "start_date" => $startDate,
+        "end_date" => $endDate,
+    ];
+
+    // Exécution de la requête
+    $query->execute($parameters);
+
+    // Récupérer le nombre de réservations qui chevauchent cette période
+    $count = $query->fetchColumn();
+
+    // Si le nombre est 0, le bungalow est disponible
+    return $count == 0;
+}
 
     // Récupérer une réservation par son ID
     public function findReservationById(int $id): ?Reservation

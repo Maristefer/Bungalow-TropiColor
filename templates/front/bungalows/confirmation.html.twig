@@ -1,0 +1,17 @@
+{% extends "front/layout.html.twig" %}
+
+{% block title %}
+   Confirmation de réservation
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<main class="main-confirmation">
+    <h1>Merci pour votre réservation !</h1>
+    <p>Votre réservation a bien été enregistrée. Nous vous avons envoyé un email de confirmation avec les détails.</p>
+   {% if reservationId %}
+        <p>ID de réservation : {{ reservationId }}</p>
+    {% endif %}
+    <a href="index.php?route=home">Retour à la page d'accueil</a>
+</main>
+{% endblock %}

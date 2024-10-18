@@ -38,7 +38,7 @@ class BungalowController extends AbstractController
     }
     
     // Réservation d'un bungalow
-    public function reserve(int $bungalowId): void {
+    /*public function reserve(int $bungalowId): void {
         if (isset($_POST['user_id'], $_POST['start_date'], $_POST['end_date'], $_POST['total_price'])) {
             $userId = (int)$_POST['user_id'];
             $startDate = DateTime::createFromFormat('Y-m-d', $_POST['start_date']);
@@ -54,7 +54,7 @@ class BungalowController extends AbstractController
             $_SESSION['error_message'] = 'Please fill in all fields.';
             $this->redirect('reserve/'.$bungalowId);
         }
-    }
+    }*/
     
     // Afficher tous les bungalows
     public function listeBungalows(): void
@@ -156,26 +156,6 @@ class BungalowController extends AbstractController
             echo "Bungalow non trouvé";
         }
     }*/
-    
-    /*public function search() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $startDate = $_POST['startDate'];
-        $endDate = $_POST['endDate'];
-        $capacity = $_POST['capacity'];
-
-        // Validation des dates côté serveur
-        if (strtotime($endDate) <= strtotime($startDate)) {
-            echo $this->twig->render('search.twig', ['error' => 'La date de fin doit être postérieure à la date de début.']);
-            return;
-        }
-
-        // Si les dates sont valides, rechercher les bungalows
-        $bungalows = $this->model->getAvailableBungalows($startDate, $endDate, $capacity);
-        echo $this->twig->render('search_results.twig', ['bungalows' => $bungalows, 'startDate' => $startDate, 'endDate' => $endDate]);
-    } else {
-        echo $this->twig->render('search.twig');
-    }
-}*/
     
 }
     

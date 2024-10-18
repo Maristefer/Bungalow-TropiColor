@@ -4,6 +4,7 @@ class Router
 {
     private DiscoveryController $dc;
     private BungalowController $bc;
+    private ReservationController $rc;
     private DefaultController $dfc;
     private AuthController $ac;
     private AdminController $adc;
@@ -14,6 +15,7 @@ class Router
     {
         $this->dc = new DiscoveryController();
         $this->bc = new BungalowController();
+        $this->rc = new ReservationController();
         $this->dfc = new DefaultController();
         $this->ac = new AuthController();
         $this->adc = new AdminController();
@@ -73,6 +75,14 @@ class Router
         else if(isset($get["route"]) && $get["route"] === "check-disponibilite")
         {
             $this->bc->searchAvailability();
+        }
+        else if(isset($get["route"]) && $get["route"] === "create-reservation")
+        {
+            $this->rc->createReserve();
+        }
+        else if(isset($get["route"]) && $get["route"] === "confirmation")
+        {
+            $this->rc->createReserve();
         }
          else if(isset($get["route"]) && $get["route"] === "inscription")
         {
