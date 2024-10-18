@@ -7,8 +7,33 @@
 
 {% block main %}
 <main class="main-reservation">
-    
-        <h2>Available Bungalows</h2>
+    <section class="home">
+        <div class="banner-home">
+            <h2 class="title-accueil">Réserver votre séjour !</h2>
+            <div class="search-form">
+                <form action="index.php?route=check-disponibilite" method="post" class="form-search">
+                    <div class="form-group-arrival">
+                        <label for="arrival-date">Date d'arrivée :</label>
+                        <input type="date" class="input-date" id="arrival-date" name="start_date" required>
+                    </div>
+                    <div class="form-group-depart">
+                        <label for="departure-date">Date de départ :</label>
+                        <input type="date" class="input-date" id="departure-date" name="end_date" required>
+                    </div>
+                    <div class="form-group-capacity">
+                        <label for="capacity">Nombre de personnes :</label>
+                        <input type="number" class="input-number" id="capacity" name="capacity" min="1" required>
+                    </div>
+                    <div class="form-group-button">
+                        <button type="submit" class="btn-search">Rechercher</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+    <section>
+        <h2>Bungalows disponible pour votre séjour</h2>
  {% for bungalow in bungalows %}       
          <div class="card-home-bunga">
                     <figure>
@@ -33,7 +58,8 @@
 {% if bungalows is empty %}
     <p>No bungalows available for the selected dates.</p>
 {% endif %}
-
+    </section>
+        
      
 </main>
 
