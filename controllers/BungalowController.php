@@ -24,9 +24,9 @@ class BungalowController extends AbstractController
             $endDate = DateTime::createFromFormat('Y-m-d', $_POST['end_date']);
             $capacity = (int)$_POST['capacity'];
 
-            if ($startDate && $endDate && $capacity > 0) {
-                $availableBungalows = $this->bungalowManager->checkAvailability($startDate, $endDate, $capacity);
-                $this->render('front/bungalows/list.html.twig', ['bungalows' => $availableBungalows, 'startDate' => $startDate, 'endDate' => $endDate]);
+            if ($startDate && $endDate && $capacity > 0 && $startDate < $endDate) {
+                $availableBungalows = $this->bm->checkAvailability($startDate, $endDate, $capacity);
+                $this->render('front/bungalows/availability.html.twig', ['bungalows' => $availableBungalows, 'startDate' => $startDate, 'endDate' => $endDate]);
             } else {
                 $_SESSION['error_message'] = 'Invalid search parameters.';
                 $this->redirect('availability');
@@ -75,7 +75,7 @@ class BungalowController extends AbstractController
         
         $bungalows = $bm->findAllBungalows();
         
-        $this->render("front/bungalows/availability.html.twig",[
+        $this->render("front/bungalows/search.html.twig",[
             "bungalows" =>$bungalows
             ]);
     }

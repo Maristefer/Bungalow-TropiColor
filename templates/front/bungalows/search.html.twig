@@ -1,0 +1,40 @@
+{% extends "front/layout.html.twig" %}
+
+{% block title %}
+   Recherche Bungalow disponible
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<main class="main-search-bunga">
+    
+        <h2>Available Bungalows</h2>
+ {% for bungalow in bungalows %}       
+         <div class="card-home-bunga">
+                    <figure>
+                        <img src="assets/img/plage-grande-anse.jpg" alt=""/>
+                    </figure>
+                    <div class="details-bunga">
+                        <h3 class="title-card-h3">nom Bungalow{{ bungalow.getName() }}</h3>
+                        <p><strong>Capacity: {{ bungalow.getCapacity() }}</strong> </p>
+                        <p><strong>surface:  {{ bungalow.getSurface() }}</strong> </p>
+                        <p><strong>prix total : "{{ bungalow.getPrice() * (endDate|date('z') - startDate|date('z')) }}"> </strong> </p>
+                       
+                    </div>
+                    <div>
+                        <p>Total : </p>
+                         <p class="btn-card"><a href="">Réserver ></a></p>
+                    </div>
+                </div>
+                
+{% endfor %}
+
+
+{% if bungalows is empty %}
+    <p>No bungalows available for the selected dates.</p>
+{% endif %}
+
+     
+</main>
+
+{% endblock %}

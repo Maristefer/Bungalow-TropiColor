@@ -84,7 +84,7 @@ class BungalowManager extends AbstractManager
         return null;
     }    
     
-    // Mettre à jour un bungalow
+    // Mettre à jour un bungalow-admin
     public function updateBungalow(Bungalow $bungalow): Bungalow
     {
        $query = $this->db->prepare('
@@ -109,7 +109,7 @@ class BungalowManager extends AbstractManager
             return $bungalow; 
     }
     
-    // Supprimer un bungalow
+    // Supprimer un bungalow-admin
     public function deleteBungalow(int $id): void
     {
         $query = $this->db->prepare("DELETE FROM bungalows WHERE id = :id");
@@ -118,20 +118,20 @@ class BungalowManager extends AbstractManager
                 "id" => $id
                 ];
                 
-            $query->execute($paramters);    
+            $query->execute($parameters);    
         
     }
     
     //Vérifier la disponibilités des bungalows
     public function checkAvailability(DateTime $startDate, DateTime $endDate, int $capacity): array {
         $query = $this->db->prepare("
-            SELECT b.*
-            FROM bungalows b
-            WHERE b.capacity >= :capacity
-            AND b.id NOT IN (
-                SELECT r.bungalow_id
-                FROM reservations r
-                WHERE NOT (r.end_date < :startDate OR r.start_date > :endDate)
+            SELECT *
+            FROM bungalows
+            WHERE capacity >= :capacity
+            AND id NOT IN (
+                SELECT bungalow_id
+                FROM reservation 
+                WHERE (:endDate >= start_date AND :startDate <= end_date)
             )
         ");
 
@@ -147,7 +147,7 @@ class BungalowManager extends AbstractManager
         $availableBungalows = [];
         foreach ($availables as $available)
         {
-            $item = new Bungalow($available['name'], $available['description'], $available['capacity'], $available['price'], $available['car_id'], $available['surface']);
+            $item = new Bungalow($available['name'], $available['description'], $available['photo_id'], $available['capacity'], $available['price'], $available['car_id'], $available['surface']);
             $item->setId($available["id"]);
             $availableBungalows[] = $item;
         }

@@ -62,15 +62,15 @@ class Router
         {
             $this->bc->listeBungalows();
         }
-        else if(isset($get["route"]) && $get["route"] === "reservation")
+        else if(isset($get["route"]) && $get["route"] === "recherche-bungalows")
         {
             $this->bc->displayBungalows();
         }
-        else if(isset($get["route"]) && $get["route"] === "disponibilité")
+        else if(isset($get["route"]) && $get["route"] === "reservation")
         {
             $this->bc->availability();
         }
-        else if(isset($get["route"]) && $get["route"] === "check-disponibilité")
+        else if(isset($get["route"]) && $get["route"] === "check-disponibilite")
         {
             $this->bc->searchAvailability();
         }
@@ -177,7 +177,7 @@ class Router
         else
         {
             // le code si c'est aucun des cas précédents ( === page 404)
-            $this->dc->notFound();
+            $this->dfc->notFound();
         }
         
     }
