@@ -120,11 +120,16 @@
     }
     p{
         @include paragraph;
+        text-align: center;
         margin: 1rem;
         
     }
-    .btn-card{
-        border: $border-button-blue;
+    .btn-card-bunga{
+        border: $border-button-blue-fin;
+        border-radius : $border-radius-button;
+        width: 45%;
+        padding: 0.5rem 1rem;
+        margin-left: 6rem;
         a{
             text-decoration: none;
             color: $text-orange;
@@ -202,6 +207,27 @@
     font-size: 1rem;
 }
 
+}
+
+/**CARDS**/
+.details-bunga 
+{
+    .title-card-h3{
+        font-size: 2rem;
+    }
+    p{
+        @include paragraph;
+        text-align: center;
+        margin: 1.5rem;
+        
+    }
+    .btn-card-bunga{
+        margin-left: 8rem;
+        a{
+            text-decoration: none;
+            color: $text-orange;
+        }
+    }
 }
 }
 
@@ -282,6 +308,27 @@
 }
 
 }
+/**CARDS**/
 
+.home-bunga-container
+{
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    justify-content: space-around;
+    
+    
+    .card-home-bunga
+    {
+        max-width: 60%;
+        margin-bottom: 1rem;
+    
+        /*img
+        {
+        width:100%;
+        border-radius: 4rem .5rem;
+        }*/
+    }
+}
 
 }

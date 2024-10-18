@@ -736,12 +736,17 @@ h2 {
 .details-bunga p {
   font-family: "Signika", sans-serif;
   color: #000;
+  text-align: center;
   margin: 1rem;
 }
-.details-bunga .btn-card {
-  border: 4px solid #00A2C7;
+.details-bunga .btn-card-bunga {
+  border: 2px solid #00A2C7;
+  border-radius: 40px 10px;
+  width: 45%;
+  padding: 0.5rem 1rem;
+  margin-left: 6rem;
 }
-.details-bunga .btn-card a {
+.details-bunga .btn-card-bunga a {
   text-decoration: none;
   color: #CC4E00;
 }
@@ -809,6 +814,23 @@ h2 {
   .search-form .btn-search {
     padding: 0rem 1.5rem;
     font-size: 1rem;
+  }
+  /**CARDS**/
+  .details-bunga .title-card-h3 {
+    font-size: 2rem;
+  }
+  .details-bunga p {
+    font-family: "Signika", sans-serif;
+    color: #000;
+    text-align: center;
+    margin: 1.5rem;
+  }
+  .details-bunga .btn-card-bunga {
+    margin-left: 8rem;
+  }
+  .details-bunga .btn-card-bunga a {
+    text-decoration: none;
+    color: #CC4E00;
   }
 }
 /**** DESKTOP ****/
@@ -882,6 +904,22 @@ h2 {
   .search-form .btn-search {
     padding: 0.5rem 1.5rem;
     font-size: 1.3rem;
+  }
+  /**CARDS**/
+  .home-bunga-container {
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    justify-content: space-around;
+  }
+  .home-bunga-container .card-home-bunga {
+    max-width: 60%;
+    margin-bottom: 1rem;
+    /*img
+    {
+    width:100%;
+    border-radius: 4rem .5rem;
+    }*/
   }
 }
 .register-form {
