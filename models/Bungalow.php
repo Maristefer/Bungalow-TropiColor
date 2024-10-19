@@ -40,17 +40,17 @@ class Bungalow
         $this->description = $description;
     }
 
-    public function getPhoto_id(): int
+    public function getPhoto_id(): ? int
     {
         return $this->photo_id;
     }
 
-    public function setPhoto_id(int $photo_id): void
+    public function setPhoto_id(?int $photo_id): void
     {
         $this->photo_id = $photo_id;
     }
 
-    public function getCapacity(): ? int
+    public function getCapacity(): int
     {
         return $this->capacity;
     }

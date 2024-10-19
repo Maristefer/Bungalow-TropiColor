@@ -4,7 +4,7 @@ class User
 {
     private ? int $id =null;
 
-    public function __construct(private string $last_name, private string $first_name, private DateTime $date_of_birth, private string $email, private string $password, private int $address_id, private int $phone, private DateTime $created_at, private string $role)
+    public function __construct(private string $last_name, private string $first_name, private DateTime $date_of_birth, private string $email, private string $password, private ? int $address_id, private int $phone, private DateTime $created_at, private string $role)
     {
         
     }
@@ -73,12 +73,12 @@ class User
         $this->password = $password;
     }
     
-    public function getAddress_id(): int
+    public function getAddress_id(): ? int
     {
         return $this->address_id;
     }
 
-    public function setAddress_id(int $address_id): void
+    public function setAddress_id(?int $address_id): void
     {
         $this->address_id = $address_id;
     }
