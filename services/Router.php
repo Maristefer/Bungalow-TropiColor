@@ -27,10 +27,12 @@ class Router
         if(!isset($get["route"]))
         {
             $this->dfc->homepage();
+            $this->bc-> displayBungalowsHome();
         }
         else if(isset($get["route"]) && $get["route"] === "home")
         {
              $this->dfc->homepage(); 
+             $this->bc-> displayBungalowsHome();
         }
         else if(isset($get["route"]) && $get["route"] === "discovery")
         {

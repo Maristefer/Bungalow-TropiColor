@@ -55,31 +55,21 @@
         <p class="text-bunga">Choisissez votre Bungalows</p>
         
         <article class="home-bunga-container">
+            {% for bungalow in bungalows %}
                 <div class="card-home-bunga">
                     <figure>
                         <img src="assets/img/plage-grande-anse.jpg" alt=""/>
                     </figure>
                     <div class="details-bunga">
-                        <h3 class="title-card-h3">nom Bungalow</h3>
-                        <p><strong>Bungalow de 4 personnes</strong> </p>
-                        <p><strong>70€/nuit</strong> </p>
-                        <p><strong>Ideal pour un couple ou un famille</strong> </p>
+                        <h3 class="title-card-h3">{{ bungalow.getName() }}</h3>
+                        <p><strong>Bungalow de {{ bungalow.getCapacity() }} personnes</strong> </p>
+                        <p><strong>{{ bungalow.getPrice() }}€/nuit</strong> </p>
+                        <p><strong>{{ bungalow.getDescription() }}</strong> </p>
                         <p class="btn-card-bunga"><a href="">En savoir + ></a></p>
                     </div>
                 </div>
-        
-                <div class="card-home-bunga">
-                    <figure>
-                        <img src="assets/img/plage-grande-anse.jpg" alt=""/>
-                    </figure>
-                    <div class="details-bunga">
-                        <h3 class="title-card-h3">nom de la plage</h3>
-                        <p><strong>Commun:</strong> </p>
-                        <p><strong>Distance:</strong> </p>
-                        <p><strong>Description :</strong> </p>
-                       <p><a href="">En savoir + ></a></p>
-                    </div>
-                </div>
+            {% endfor %}
+            
         </article>
         
     </section>

@@ -29,11 +29,11 @@ class BungalowController extends AbstractController
                 $this->render('front/bungalows/availability.html.twig', ['bungalows' => $availableBungalows, 'startDate' => $startDate, 'endDate' => $endDate]);
             } else {
                 $_SESSION['error_message'] = 'Invalid search parameters.';
-                $this->redirect('availability');
+                $this->redirect('reservation');
             }
         } else {
             $_SESSION['error_message'] = 'Please provide all required fields.';
-            $this->redirect('availability');
+            $this->redirect('reservation');
         }
     }
     
@@ -76,6 +76,18 @@ class BungalowController extends AbstractController
         $bungalows = $bm->findAllBungalows();
         
         $this->render("front/bungalows/search.html.twig",[
+            "bungalows" =>$bungalows
+            ]);
+    }
+    
+    // Afficher tous les bungalows page home
+    public function displayBungalowsHome(): void
+    {
+        $bm = new BungalowManager();
+        
+        $bungalows = $bm->findAllBungalows();
+        
+        $this->render("front/home.html.twig",[
             "bungalows" =>$bungalows
             ]);
     }
