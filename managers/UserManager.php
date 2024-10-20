@@ -18,7 +18,7 @@ class UserManager extends AbstractManager {
             "date_of_birth" => $user->getDate_of_birth()->format('Y-m-d'),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
-            "address_id" => $user->getAddress_id(),
+            "address_id" => $user->getAddress_id() ? $user->getAddress_id() : null,
             "phone" => $user->getPhone(),
             "role" => $user->getRole(),
         ];
@@ -43,6 +43,7 @@ class UserManager extends AbstractManager {
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
 
+        //!== false
         if($user)
         {
             $item = new User($user["last_name"], $user["first_name"], new DateTime($user["date_of_birth"]), $user["email"], $user["password"], $user["address_id"], $user["phone"], new DateTime($user["created_at"]), $user["role"]);

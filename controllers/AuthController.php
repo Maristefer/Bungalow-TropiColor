@@ -73,7 +73,7 @@ class AuthController extends AbstractController {
                                 $phone = htmlspecialchars($_POST["phone"]);
                             
                                 // Créer l'instance de l'utilisateur avec tous les champs
-                                $user = new User($lastname, $firstname, new DateTime($date_of_birth_formatted), $email, $password, $address_id, $phone, 'USER');
+                                $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address_id, $phone, 'USER');
 
                                 $um->createUser($user);// Ajoute l'utilisateur à la base de données
 

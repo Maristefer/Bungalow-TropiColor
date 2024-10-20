@@ -43,7 +43,7 @@
                         <h3 class="title-card-h3">nom Bungalow{{ bungalow.getName() }}</h3>
                         <p><strong>Capacity: {{ bungalow.getCapacity() }}</strong> </p>
                         <p><strong>surface:  {{ bungalow.getSurface() }}</strong> </p>
-                        <p><strong>prix total : "{{ bungalow.getPrice() * (endDate|date('z') - startDate|date('z')) }}"> </strong> </p>
+                        <p><strong>prix total : "{{ bungalow.getPrice() * ((endDate|date("U") - startDate|date("U")) / (60 * 60 * 24)) }}"> </strong> </p>
                        
                     </div>
                     <div>

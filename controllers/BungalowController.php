@@ -26,7 +26,9 @@ class BungalowController extends AbstractController
 
             if ($startDate && $endDate && $capacity > 0 && $startDate < $endDate) {
                 $availableBungalows = $this->bm->checkAvailability($startDate, $endDate, $capacity);
-                $this->render('front/bungalows/availability.html.twig', ['bungalows' => $availableBungalows, 'startDate' => $startDate, 'endDate' => $endDate]);
+                $startDateFormated = $startDate->format('Y-m-d');
+                $endDateFormated = $endDate->format('Y-m-d');
+                $this->render('front/bungalows/availability.html.twig', ['bungalows' => $availableBungalows, 'startDate' => $startDateFormated, 'endDate' => $endDateFormated]);
             } else {
                 $_SESSION['error_message'] = 'Invalid search parameters.';
                 $this->redirect('reservation');
