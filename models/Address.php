@@ -4,7 +4,7 @@ class Address
 {
     private ? int $id =null;
 
-    public function __construct(private int $number, private string $street, private string $complement, private string $postal_code, private string $city)
+    public function __construct(private int $number, private string $street, private ? string $complement, private string $postale_code, private string $city)
     {
         
     }
@@ -41,25 +41,25 @@ class Address
 
     }
     
-    public function getComplement(): string
+    public function getComplement(): ? string
     {
         return $this->complement;
     }
 
-    public function setComplement(string $complement): void
+    public function setComplement(?string $complement): void
     {
         $this->complement = $complement;
 
     }
 
-    public function getPostal_code(): string
+    public function getPostale_code(): string
     {
-        return $this->postal_code;
+        return $this->postale_code;
     }
 
-    public function setPostal_code(string $postal_code): void
+    public function setPostale_code(string $postale_code): void
     {
-        $this->postal_code = $postal_code;
+        $this->postale_code = $postale_code;
 
     }
 

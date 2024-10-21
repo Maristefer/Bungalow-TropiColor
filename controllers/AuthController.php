@@ -19,11 +19,14 @@ class AuthController extends AbstractController {
     $this->um->createUser($user);*/
     public function checkRegister() : void
     {
-        //vérifie que tous les champs du formulaire (email, password, confirm_password) sont bien présents. 
+        // Debug pour voir les données reçues dans le formulaire
+    var_dump($_POST);
+        //vérifie que tous les champs du formulaire (email, password, confirm_password,ect) sont bien présents. 
         //Si ce n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
         if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) 
         && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"])
-        && isset($_POST["address_id"]) && isset($_POST["phone"]))
+        && isset($_POST["number"]) && isset($_POST["street"]) && isset($_POST["postale_code"])
+        && isset($_POST["city"]) && isset($_POST["phone"]))
         {
             $tokenManager = new CSRFTokenManager();
             
@@ -37,7 +40,7 @@ class AuthController extends AbstractController {
                     $this->redirect("inscription");
                     return;
                 }
-                
+                    // Vérification des mots de passe
                     if($_POST["password"] === $_POST["confirm_password"])
                     {
                         // Mot de passe doit respecter les règles de sécurité
@@ -50,6 +53,15 @@ class AuthController extends AbstractController {
 
                             if($user === null)
                             {
+                                // Créer une nouvelle adresse
+                            $address = new Address(
+                                htmlspecialchars($_POST["number"]),
+                                htmlspecialchars($_POST["street"]),
+                                htmlspecialchars($_POST["complement"] ?? ""), // facultatif
+                                htmlspecialchars($_POST["postale_code"]),
+                                htmlspecialchars($_POST["city"])
+                            );
+                                
                                 // Créer un nouvel utilisateur si l'email n'existe pas encore
                                 $lastname = htmlspecialchars($_POST["last_name"]);
                                 $firstname = htmlspecialchars($_POST["first_name"]);
@@ -69,11 +81,10 @@ class AuthController extends AbstractController {
                             
                                 $email = htmlspecialchars($_POST["email"]);
                                 $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-                                $address_id = !empty($_POST["address_id"]) ? (int)$_POST["address_id"] : null;
                                 $phone = htmlspecialchars($_POST["phone"]);
                             
                                 // Créer l'instance de l'utilisateur avec tous les champs
-                                $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address_id, $phone, 'USER');
+                                $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, 'USER');
 
                                 $um->createUser($user);// Ajoute l'utilisateur à la base de données
 

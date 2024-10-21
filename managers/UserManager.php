@@ -11,12 +11,12 @@ class UserManager extends AbstractManager {
     //classe User en paramètre
     public function createUser(User $user) : User
     {
-        $query = $this->db->prepare('INSERT INTO address (number, street, complement, postal_code, city) VALUES (:number, :street, :complement, :postal_code, :city)');
+        $query = $this->db->prepare('INSERT INTO address (number, street, complement, postale_code, city) VALUES (:number, :street, :complement, :postale_code, :city)');
         $query->execute([
             'number' => $user->getAddress()->getNumber(),
             'street' => $user->getAddress()->getStreet(),
             'complement' => $user->getAddress()->getComplement(),
-            'postal_code' => $user->getAddress()->getPostal_code(),
+            'postale_code' => $user->getAddress()->getPostale_code(),
             'city' => $user->getAddress()->getCity()
         ]);
         
@@ -77,7 +77,7 @@ class UserManager extends AbstractManager {
         $address = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($address) {
-            return new Adress($address['number'], $address['street'], $address['complement'], $address['postal_code'], $address['city']);
+            return new Adress($address['number'], $address['street'], $address['complement'], $address['postale_code'], $address['city']);
         } else {
             return null;
         }
@@ -138,7 +138,7 @@ class UserManager extends AbstractManager {
         'number' => $user->getAddress()->getNumber(),
         'street' => $user->getAddress()->getStreet(),
         'complement' => $user->getAddress()->getComplement(),
-        'postal_code' => $user->getAddress()->getPostal_code(),
+        'postale_code' => $user->getAddress()->getPostale_code(),
         'city' => $user->getAddress()->getCity(),
         'id' => $user->getAddress()->getId(),
     ]);

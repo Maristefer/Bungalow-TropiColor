@@ -18,7 +18,10 @@ class UserController extends AbstractController
     {
         //vérifie que tous les champs du formulaire (email, password, confirm_password) sont bien présents. 
         //Si ce n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
-        if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"]) && isset($_POST["role"]))
+        if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) 
+        && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"]) 
+        && isset($_POST["number"]) && isset($_POST["street"]) && isset($_POST["postale_code"])
+        && isset($_POST["city"]) && isset($_POST["phone"]) && isset($_POST["role"]))
         {
             $tokenManager = new CSRFTokenManager();
             
@@ -38,11 +41,35 @@ class UserController extends AbstractController
 
                         if($user === null)
                         {
+                            // Créer une nouvelle adresse
+                            $address = new Address(
+                                htmlspecialchars($_POST["number"]),
+                                htmlspecialchars($_POST["street"]),
+                                htmlspecialchars($_POST["complement"] ?? ""), // facultatif
+                                htmlspecialchars($_POST["postale_code"]),
+                                htmlspecialchars($_POST["city"])
+                            );
+                            
                             // Créer un nouvel utilisateur si l'email n'existe pas encore
+                            $lastname = htmlspecialchars($_POST["last_name"]);
+                            $firstname = htmlspecialchars($_POST["first_name"]);
+                            $date_of_birth_raw = htmlspecialchars($_POST["date_of_birth"]);
+                            
+                            // Vérification et conversion de la date de naissance au format 'Y-m-d'
+                            $date_of_birth = DateTime::createFromFormat('Y-m-d', $date_of_birth_raw);
+
+                                if (!$date_of_birth || $date_of_birth->format('Y-m-d') !== $date_of_birth_raw) {
+                                    $_SESSION["error_message"] = "Invalid date of birth format. Please use YYYY-MM-DD.";
+                                    $this->redirect("inscription");
+                                    return;
+                                }
+                                // Convertir la date au format 'Y-m-d H:i:s' pour la base de données
+                                $date_of_birth_formatted = $date_of_birth->format('Y-m-d H:i:s');
                             $email = htmlspecialchars($_POST["email"]);
                             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
                             $role = htmlspecialchars($_POST["role"]);
-                            $user = new User($email, $password, $role);
+                            $phone = htmlspecialchars($_POST["phone"]);
+                            $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $role);
 
                             $um->createUser($user);// Ajoute l'utilisateur à la base de données
 
