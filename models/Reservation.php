@@ -3,8 +3,9 @@
 class Reservation
 {
     private ? int $id = null;
+    
 
-    public function __construct(private int $user_id, private int $bungalow_id, private DateTime $start_date, private DateTime $end_date, private DateTime $created_at, private int $total_price)
+    public function __construct(private User $user, private Bungalow $bungalow, private DateTime $start_date, private DateTime $end_date, private DateTime $created_at, private int $total_price)
     {
         
     }
@@ -19,24 +20,24 @@ class Reservation
         $this -> id = $id;
     }
     
-    public function getUserId(): int
+    public function getUser(): User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(int $user_id): void
+    public function setUser(User $user): void
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
     }
 
-   public function getBungalowId(): int
+   public function getBungalow(): Bungalow
     {
-        return $this->bungalow_id;
+        return $this->bungalow;
     }
 
-    public function setBungalowId(int $bungalow_id): void
+    public function setBungalow(Bungalow $bungalow): void
     {
-        $this->bungalow_id = $bungalow_id;
+        $this->bungalow = $bungalow;
     }
 
     

@@ -19,7 +19,7 @@ class AuthController extends AbstractController {
     $this->um->createUser($user);*/
     public function checkRegister() : void
     {
-    
+        
         //vérifie que tous les champs du formulaire (email, password, confirm_password,ect) sont bien présents. 
         //Si ce n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
         if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) 
@@ -27,14 +27,18 @@ class AuthController extends AbstractController {
         && isset($_POST["number"]) && isset($_POST["street"]) && isset($_POST["postale_code"])
         && isset($_POST["city"]) && isset($_POST["phone"]))
         {
+            
             $tokenManager = new CSRFTokenManager();
             
             //Vérifie si le csrf_token est présent et utilise le CSRFTokenManager pour vérifier que le token reçu est le bon, 
             //si ça n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
             if(isset($_POST["csrf_token"]) && $tokenManager->validateCSRFToken($_POST["csrf_token"]))
             {
+                
                 // Vérification de la validité des champs
                  if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                    var_dump($_POST);
+                    die;
                     $_SESSION["error_message"] = "Invalid email format";
                     $this->redirect("inscription");
                     return;
@@ -47,6 +51,7 @@ class AuthController extends AbstractController {
 
                         if (preg_match($password_pattern, $_POST["password"]))
                         {
+                            
                             $um = new UserManager();
                             $user = $um->findUserByEmail($_POST["email"]);
 
@@ -81,9 +86,10 @@ class AuthController extends AbstractController {
                                 $email = htmlspecialchars($_POST["email"]);
                                 $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
                                 $phone = htmlspecialchars($_POST["phone"]);
+                                $created_at = new DateTime('now', new DateTimeZone('Europe/Paris'));
                             
                                 // Créer l'instance de l'utilisateur avec tous les champs
-                                $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, 'USER');
+                                $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $created_at, 'USER');
 
                                 $um->createUser($user);// Ajoute l'utilisateur à la base de données
 
@@ -155,7 +161,7 @@ class AuthController extends AbstractController {
 
                         unset($_SESSION["error_message"]);
 
-                        $this->redirect("index.php");
+                        $this->redirect("home");
                     }
                     else
                     {

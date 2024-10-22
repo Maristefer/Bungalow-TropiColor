@@ -77,7 +77,7 @@ class UserManager extends AbstractManager {
         $address = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($address) {
-            return new Adress($address['number'], $address['street'], $address['complement'], $address['postale_code'], $address['city']);
+            return new Address($address['number'], $address['street'], $address['complement'], $address['postale_code'], $address['city']);
         } else {
             return null;
         }
