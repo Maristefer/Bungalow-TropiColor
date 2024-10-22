@@ -12,11 +12,11 @@ class ReservationManager extends AbstractManager
     {
         $query = $this->db->prepare('INSERT INTO reservation (id, user_id, bungalow_id, start_date, end_date, created_at, total_price) VALUES (NULL, :user_id, :bungalow_id, :start_date, :end_date, :created_at, :total_price)');
         $parameters = [
-            "user_id" => $reservation->getUserId(),
-            "bungalow_id" => $reservation->getBungalowId(),
-            "start_date" => $reservation->getStartDate(),
-            "end_date" => $reservation->getEndDate(),
-            "created_at" => $reservation->getCreatedAt(),
+            "user_id" => $reservation->getUser()->getId(),
+            "bungalow_id" => $reservation->getBungalow()->getId(),
+            "start_date" => $reservation->getStartDate()->format('Y-m-d H:i:s'),
+            "end_date" => $reservation->getEndDate()->format('Y-m-d H:i:s'),
+            "created_at" => $reservation->getCreatedAt()->format('Y-m-d H:i:s'),
             "total_price" => $reservation->getTotalPrice(),
         ];
 
@@ -34,18 +34,25 @@ class ReservationManager extends AbstractManager
     {
         $reservations = [];
 
-        $query = $this->db->prepare("SELECT * FROM reservation");
+        $query = $this->db->prepare("SELECT r.*, u.id AS user_id, u.first_name, u.last_name, b.id AS bungalow_id, b.name
+                FROM reservation r
+                JOIN users u ON r.user_id = u.id
+                JOIN bungalows b ON r.bungalow_id = b.id");
+        
         $query->execute();
 
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as $item) {
+            $user = new User($item['user_id'], $item['first_name'], $item['last_name']);
+            $bungalow = new Bungalow($item['bungalow_id'], $item['name']);
+            
             $reservation = new Reservation(
-                $item["user_id"],
-                $item["bungalow_id"],
-                $item["start_date"],
-                $item["end_date"],
-                $item["created_at"],
+                $user,
+                $bungalow,
+                new DateTime($item["start_date"]),
+                new DateTime($item["end_date"]),
+                new DateTime($item["created_at"]),
                 $item["total_price"]
             );
             $reservation->setId($item["id"]);
@@ -85,18 +92,23 @@ class ReservationManager extends AbstractManager
     // Récupérer une réservation par son ID
     public function findReservationById(int $id): ?Reservation
     {
-        $query = $this->db->prepare("SELECT * FROM reservation WHERE id = :id");
+        $query = $this->db->prepare("SELECT r.*, u.id AS user_id, u.first_name, u.last_name, b.id AS bungalow_id, b.name
+                FROM reservation r
+                JOIN users u ON r.user_id = u.id
+                JOIN bungalows b ON r.bungalow_id = b.id
+                WHERE r.id = :id");
+                
         $query->execute(['id' => $id]);
 
         $item = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($item) {
             $reservation = new Reservation(
-                $item["user_id"],
-                $item["bungalow_id"],
-                $item["start_date"],
-                $item["end_date"],
-                $item["created_at"],
+                $user,
+                $bungalow,
+                new DateTime($item["start_date"]),
+                new DateTime($item["end_date"]),
+                new DateTime($item["created_at"]),
                 $item["total_price"]
             );
             $reservation->setId($item["id"]);
@@ -117,11 +129,11 @@ class ReservationManager extends AbstractManager
             WHERE id = :id'
         );
         $parameters = [
-            "user_id" => $reservation->getUserId(),
-            "bungalow_id" => $reservation->getBungalowId(),
-            "start_date" => $reservation->getStartDate(),
-            "end_date" => $reservation->getEndDate(),
-            "created_at" => $reservation->getCreatedAt(),
+            "user_id" => $reservation->getUser()->getId(),
+            "bungalow_id" => $reservation->getBungalow()->getId(),
+            "start_date" => $reservation->getStartDate()->format('Y-m-d H:i:s'),
+            "end_date" => $reservation->getEndDate()->format('Y-m-d H:i:s'),
+            "created_at" => $reservation->getCreatedAt()->format('Y-m-d H:i:s'),
             "total_price" => $reservation->getTotalPrice(),
             "id" => $reservation->getId(),
         ];
@@ -132,7 +144,7 @@ class ReservationManager extends AbstractManager
     // Supprimer une réservation
     public function deleteReservation(int $id): bool
     {
-        $query = $this->db->prepare("DELETE FROM reservations WHERE id = :id");
+        $query = $this->db->prepare("DELETE FROM reservation WHERE id = :id");
         return $query->execute(["id" => $id]);
     }
 
