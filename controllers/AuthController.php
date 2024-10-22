@@ -19,8 +19,7 @@ class AuthController extends AbstractController {
     $this->um->createUser($user);*/
     public function checkRegister() : void
     {
-        // Debug pour voir les données reçues dans le formulaire
-    var_dump($_POST);
+    
         //vérifie que tous les champs du formulaire (email, password, confirm_password,ect) sont bien présents. 
         //Si ce n'est pas le cas elle redirige vers la page d'inscription et affiche un message d'erreur.
         if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) 
@@ -98,6 +97,7 @@ class AuthController extends AbstractController {
                         {
                             $_SESSION["error_message"] = "User already exists";
                             $this->redirect("inscription");
+                            
                         }
                     }
                     else {
@@ -113,6 +113,7 @@ class AuthController extends AbstractController {
             }
             else
             {
+                
                 $_SESSION["error_message"] = "Invalid CSRF token";
                 $this->redirect("inscription");
             }
@@ -122,7 +123,6 @@ class AuthController extends AbstractController {
             $_SESSION["error_message"] = "Missing fields";
             $this->redirect("inscription");
         }
-        
         
     }
     

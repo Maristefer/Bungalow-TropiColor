@@ -63,8 +63,8 @@ class UserController extends AbstractController
                                     $this->redirect("inscription");
                                     return;
                                 }
-                                // Convertir la date au format 'Y-m-d H:i:s' pour la base de données
-                                $date_of_birth_formatted = $date_of_birth->format('Y-m-d H:i:s');
+                            // Convertir la date au format 'Y-m-d H:i:s' pour la base de données
+                            $date_of_birth_formatted = $date_of_birth->format('Y-m-d H:i:s');
                             $email = htmlspecialchars($_POST["email"]);
                             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
                             $role = htmlspecialchars($_POST["role"]);
