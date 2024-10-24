@@ -161,7 +161,7 @@ class AuthController extends AbstractController {
                         
                         //Retire tout les message d'erreur précédent
                         unset($_SESSION["error_message"]);
-
+            
                         $this->redirect("home");
                     }
                     else
@@ -193,6 +193,6 @@ class AuthController extends AbstractController {
     {
         session_destroy();
         
-        $this->redirect("index.php");
+        $this->redirect("home");
     }
 }
