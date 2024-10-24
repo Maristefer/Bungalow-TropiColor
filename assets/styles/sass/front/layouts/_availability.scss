@@ -1,0 +1,93 @@
+/*CARD*/
+
+.search-bunga-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    
+    .card-search-bunga
+    {
+        background: $gradient-card;
+        border-radius: $border-radius-card;
+        max-width: 80%;
+        margin-bottom: 1rem;
+    
+        img
+        {
+        width:100%;
+        border-radius: 4rem .5rem;
+        }
+    }
+}
+
+
+.details-bunga-search 
+{
+    .title-card-h3{
+        @include title($color: $text-blue);
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    p{
+        @include paragraph;
+        text-align: center;
+        margin: 1rem;
+        
+    }
+    .btn-card-bunga{
+        border: $border-button-blue-fin;
+        border-radius : $border-radius-button;
+        width: 45%;
+        padding: 0.5rem 1rem;
+        margin-left: 6rem;
+        a{
+            text-decoration: none;
+            color: $text-orange;
+        }
+    }
+}
+
+/****TABLETTE****/
+
+@media screen and (min-width: 780px){
+    
+    /**CARDS**/
+    
+    .search-bunga-container
+    {
+    
+    
+        .card-search-bunga
+        {
+            display: flex;
+    
+            img
+            {
+            width: 60%;
+            height: 100%;
+            }
+        }
+    }
+    .details-bunga-search 
+    {
+        display: grid;
+        .title-card-h3{
+            font-size: 2rem;
+        }
+        p{
+            @include paragraph;
+            text-align: center;
+            margin: 1.5rem;
+        
+        }
+        .btn-card-bunga{
+            margin-left: 8rem;
+            a{
+                text-decoration: none;
+                color: $text-orange;
+            }
+        }
+    }
+}

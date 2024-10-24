@@ -959,6 +959,124 @@ h2 {
   width: 50%;
 }
 
+/*CARD*/
+.search-bunga-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+.search-bunga-container .card-search-bunga {
+  background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
+  border-radius: 4rem 1rem 1rem 1rem;
+  max-width: 80%;
+  margin-bottom: 1rem;
+}
+.search-bunga-container .card-search-bunga img {
+  width: 100%;
+  border-radius: 4rem 0.5rem;
+}
+
+.details-bunga-search .title-card-h3 {
+  font-family: "Dancing Script", cursive;
+  color: #00A2C7;
+  font-weight: 700;
+  text-align: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.details-bunga-search p {
+  font-family: "Signika", sans-serif;
+  color: #000;
+  text-align: center;
+  margin: 1rem;
+}
+.details-bunga-search .btn-card-bunga {
+  border: 2px solid #00A2C7;
+  border-radius: 40px 10px;
+  width: 45%;
+  padding: 0.5rem 1rem;
+  margin-left: 6rem;
+}
+.details-bunga-search .btn-card-bunga a {
+  text-decoration: none;
+  color: #CC4E00;
+}
+
+/****TABLETTE****/
+@media screen and (min-width: 780px) {
+  /**CARDS**/
+  .search-bunga-container .card-search-bunga {
+    display: flex;
+  }
+  .search-bunga-container .card-search-bunga img {
+    width: 60%;
+    height: 100%;
+  }
+  .details-bunga-search {
+    display: grid;
+  }
+  .details-bunga-search .title-card-h3 {
+    font-size: 2rem;
+  }
+  .details-bunga-search p {
+    font-family: "Signika", sans-serif;
+    color: #000;
+    text-align: center;
+    margin: 1.5rem;
+  }
+  .details-bunga-search .btn-card-bunga {
+    margin-left: 8rem;
+  }
+  .details-bunga-search .btn-card-bunga a {
+    text-decoration: none;
+    color: #CC4E00;
+  }
+}
+/*CARD*/
+.home-bunga-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+.home-bunga-container .card-home-bunga {
+  background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
+  border-radius: 4rem 1rem 1rem 1rem;
+  max-width: 80%;
+  margin-bottom: 1rem;
+}
+.home-bunga-container .card-home-bunga img {
+  width: 100%;
+  border-radius: 4rem 0.5rem;
+}
+
+.details-bunga .title-card-h3 {
+  font-family: "Dancing Script", cursive;
+  color: #00A2C7;
+  font-weight: 700;
+  text-align: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.details-bunga p {
+  font-family: "Signika", sans-serif;
+  color: #000;
+  text-align: center;
+  margin: 1rem;
+}
+.details-bunga .btn-card-bunga {
+  border: 2px solid #00A2C7;
+  border-radius: 40px 10px;
+  width: 45%;
+  padding: 0.5rem 1rem;
+  margin-left: 6rem;
+}
+.details-bunga .btn-card-bunga a {
+  text-decoration: none;
+  color: #CC4E00;
+}
+
 /*@import "layouts/teams";
 @import "layouts/team";
 @import "layouts/players";
