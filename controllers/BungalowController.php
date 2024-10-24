@@ -94,14 +94,14 @@ class BungalowController extends AbstractController
             ]);
     }
     // Afficher un bungalow spécifique
-    public function show(int $id)
+    public function show(int $id) : void
     {
-        $bungalow = $this->bungalowManager->findBungalowById($id);
+        $bungalow = $this->bm->findBungalowById($id);
         if ($bungalow) {
             require 'views/bungalows/show.php'; // Vue pour afficher un bungalow spécifique
         } else {
             // Gérer l'erreur si le bungalow n'existe pas
-            header('HTTP/1.0 404 Not Found');
+            $this->redirect("admin-list-bungalow");
             echo 'Bungalow not found';
         }
     }
@@ -120,7 +120,7 @@ class BungalowController extends AbstractController
                 $_POST['surface']
             );
 
-            $newBungalow = $this->bungalowManager->createBungalow($bungalow);
+            $newBungalow = $this->bm->createBungalow($bungalow);
             header('Location: /bungalows/' . $newBungalow->getId()); // Rediriger vers le bungalow créé
         } else {
             require 'views/bungalows/create.php'; // Vue pour le formulaire de création
