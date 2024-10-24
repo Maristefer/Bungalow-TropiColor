@@ -28,10 +28,9 @@ class ReservationController extends AbstractController
     }
     
     // Vérifier que l'utilisateur est connecté
-     if (isset($_SESSION['user_id'])) {
-    echo "Vous êtes connecté, utilisateur ID : " . $_SESSION['user_id'];
-    } else {
-    echo "Vous n'êtes pas connecté.";
+     if (!isset($_SESSION['user_id'])|| !is_int($_SESSION['user_id'])) {
+        echo "Vous devez être connecté pour effectuer une réservation.";
+        return;
     }
     
     
@@ -43,7 +42,7 @@ class ReservationController extends AbstractController
         
         // Récupérer l'objet User correspondant à l'utilisateur connecté
         $um = new UserManager(); // Il faudra implémenter cette classe
-        $user = $um->findUserById($useId);
+        $user = $um->findUserById($userId);
         
         if (!$user) {
             echo "Utilisateur introuvable.";

@@ -156,9 +156,10 @@ class AuthController extends AbstractController {
                 {
                     if(password_verify($_POST["password"], $user->getPassword()))
                     {
-                        $_SESSION["user"] = $user->getId();
+                        $_SESSION["user_id"] = $user->getId();
                         $_SESSION["role"] = $user->getRole();
-
+                        
+                        //Retire tout les message d'erreur précédent
                         unset($_SESSION["error_message"]);
 
                         $this->redirect("home");
