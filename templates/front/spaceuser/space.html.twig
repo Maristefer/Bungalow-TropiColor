@@ -1,0 +1,45 @@
+{% extends "front/layout.html.twig" %}
+
+{% block title %}
+   Espace Client
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<main class="main-search-bunga">
+    <section class="bungalows">
+        <h2 class="title-search-bunga">Vérifier la disponibilité des bungalows</h2>
+        
+        
+        <article class="search-bunga-container">
+            <h3 class="text-search">Sélectionner les dates de votre séjour</h3>
+            {% for bungalow in bungalows %}
+                <div class="card-search-bunga">
+                    <figure>
+                        <img src="assets/img/plage-grande-anse.jpg" alt=""/>
+                    </figure>
+                    <div class="details-bunga-search">
+                        <h3 class="title-card-h3">{{ bungalow.getName() }}</h3>
+                        <p><strong>{{ bungalow.getCapacity() }} personnes</strong> </p>
+                        <p><strong>{{ bungalow.getSurface() }}</strong> </p>
+                        <p><strong>Location de voiture : si vous le souhaitez</strong> </p>
+                        <p><strong>prix:{{ bungalow.getPrice()}} €/nuit</strong> </p>
+                       
+                    </div>
+                    <div>
+                         <p class="btn-card"><a href="">En savoir + </a></p>
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </article>
+        
+    </section>
+
+{% if bungalows is empty %}
+    <p>No bungalows available for the selected dates.</p>
+{% endif %}
+     
+</main>
+
+{% endblock %}

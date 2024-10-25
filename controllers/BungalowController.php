@@ -105,34 +105,62 @@ class BungalowController extends AbstractController
             echo 'Bungalow not found';
         }
     }
+    
+    public function create() : void 
+    {
+        $this->render("admin/bungalows/create.html.twig", []);
+    }
 
     // Créer un nouveau bungalow
-    public function create()
+    public function Checkcreate() : void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bungalow = new Bungalow(
-                $_POST['name'],
-                $_POST['description'],
-                $_POST['photo_id'],
-                $_POST['capacity'],
-                $_POST['price'],
-                $_POST['car_id'],
-                $_POST['surface']
-            );
+        if (isset($_POST["name"], $_POST["description"], $_POST["photo_id"], $_POST["capacity"], $_POST["price"], $_POST["car_id"], $_POST["surface"])) 
+        {
+            // Assainissement des entrées utilisateur
+            $name = htmlspecialchars($_POST["name"]);
+            $description = htmlspecialchars($_POST["description"]);
+            $photo_id = htmlspecialchars($_POST["photo_id"] ?? "");
+            $capacity = (int) htmlspecialchars($_POST["capacity"]);
+            $price = (int) htmlspecialchars($_POST["price"]);
+            $car_id = htmlspecialchars($_POST["car_id"] ?? "");
+            $surface = (int) htmlspecialchars($_POST["surface"]);
 
+            // Crée une instance de bungalow avec les données fournies
+            $bungalow = new Bungalow($name, $description, $photo_id, $capacity, $price, $car_id, $surface);
+
+            // Sauvegarde du nouveau bungalow en utilisant le modèle
             $newBungalow = $this->bm->createBungalow($bungalow);
-            header('Location: /bungalows/' . $newBungalow->getId()); // Rediriger vers le bungalow créé
-        } else {
-            require 'views/bungalows/create.php'; // Vue pour le formulaire de création
-        }
+        
+            // Redirige vers la page du nouveau bungalow créé
+            $this->redirect("admin-list-bungalow/" . $newBungalow->getId());
+        } 
+        else 
+        {
+            // Si les champs ne sont pas complets, affiche de nouveau le formulaire avec un message d'erreur
+            $_SESSION['error_message'] = 'Veuillez remplir tous les champs requis.';
+            $this->render("admin/bungalows/create.html.twig", []);
     }
+}
 
     // Mettre à jour un bungalow existant
     public function edit(int $id)
     {
         $bungalow = $this->bungalowManager->findBungalowById($id);
 
-        if ($bungalow) {
+        if ($bungalow !== null) {
+               $this->render("admin/bungalows/edit.html.twig", ['bungalow' => $bungalow]);
+        }
+        else
+        {
+            $this->redirect("admin-list-bungalow");
+        }
+    }
+    
+    public function checkEdit() : void
+    {
+         $bungalow = $this->bungalowManager->findBungalowById($id);
+
+        if ($bungalow !== null) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $bungalow->setName($_POST['name']);
                 $bungalow->setDescription($_POST['description']);

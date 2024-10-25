@@ -185,6 +185,16 @@ class Router
             {
                 $this->redirect("admin-list-user");
             }
+        }    
+        else if(isset($get["route"]) && $get["route"] === "admin-create-bungalow")
+        {
+            $this->checkAdminAccess();
+            $this->bc->create();
+        }
+         else if(isset($get["route"]) && $get["route"] === "admin-check-create-bungalow")
+        {
+            $this->checkAdminAccess();
+            $this->bc->checkCreate();
         }
         else
         {
