@@ -131,7 +131,7 @@ class BungalowManager extends AbstractManager
             AND id NOT IN (
                 SELECT bungalow_id
                 FROM reservation 
-                WHERE (:endDate >= start_date AND :startDate <= end_date)
+                WHERE NOT (:endDate < start_date OR :startDate > end_date)
             )
         ");
 
