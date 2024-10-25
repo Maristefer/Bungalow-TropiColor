@@ -69,7 +69,8 @@ class UserController extends AbstractController
                             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
                             $role = htmlspecialchars($_POST["role"]);
                             $phone = htmlspecialchars($_POST["phone"]);
-                            $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $role);
+                            $created_at = new DateTime('now', new DateTimeZone('Europe/Paris'));
+                            $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $created_at, $role);
 
                             $um->createUser($user);// Ajoute l'utilisateur à la base de données
 
@@ -128,7 +129,7 @@ class UserController extends AbstractController
     {
         if(isset($_POST["last_name"]) && isset($_POST["first_name"]) && isset($_POST["date_of_birth"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"]) 
         && isset($_POST["number"]) && isset($_POST["street"]) && isset($_POST["postale_code"]) && isset($_POST["city"]) && isset($_POST["phone"])&& isset($_POST["role"])
-        && isset($_POST["user_id"]))
+        && isset($_POST["user_id"]) && isset($_POST["address_id"]))
         {
             $tokenManager = new CSRFTokenManager();
             
@@ -148,12 +149,17 @@ class UserController extends AbstractController
 
                         if($user === null)
                         {*/
+                            $addressId = (int)$_POST["address_id"];
+                            $number = (int)$_POST["number"];
+                            
                             $address = new Address(
-                                htmlspecialchars($_POST["number"]),
+                                
+                                $number,
                                 htmlspecialchars($_POST["street"]),
                                 htmlspecialchars($_POST["complement"] ?? ""), // facultatif
                                 htmlspecialchars($_POST["postale_code"]),
-                                htmlspecialchars($_POST["city"])
+                                htmlspecialchars($_POST["city"]),
+                                $addressId,
                             );
                             
                             $userId = (int)$_POST["user_id"];
@@ -174,10 +180,12 @@ class UserController extends AbstractController
                             $email = htmlspecialchars($_POST["email"]);
                             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
                             $phone = htmlspecialchars($_POST["phone"]);
+                            $created_at = new DateTime('now', new DateTimeZone('Europe/Paris'));
                             $role = htmlspecialchars($_POST["role"]);
                             
-                            $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $role);
+                            $user = new User($lastname, $firstname, $date_of_birth, $email, $password, $address, $phone, $created_at, $role);
                             $user->setId($userId);
+                            $user->setAddress($address);
 
                             $um->updateUser($user);/// Met à jour l'utilisateur dans la base de données
 

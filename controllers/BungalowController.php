@@ -93,18 +93,6 @@ class BungalowController extends AbstractController
             "bungalows" =>$bungalows
             ]);
     }
-    // Afficher un bungalow spécifique
-    public function show(int $id) : void
-    {
-        $bungalow = $this->bm->findBungalowById($id);
-        if ($bungalow) {
-            require 'views/bungalows/show.php'; // Vue pour afficher un bungalow spécifique
-        } else {
-            // Gérer l'erreur si le bungalow n'existe pas
-            $this->redirect("admin-list-bungalow");
-            echo 'Bungalow not found';
-        }
-    }
     
     public function create() : void 
     {
@@ -158,46 +146,71 @@ class BungalowController extends AbstractController
     
     public function checkEdit() : void
     {
-         $bungalow = $this->bungalowManager->findBungalowById($id);
+        if(isset($_POST["name"], $_POST["description"], $_POST["photo_id"], $_POST["capacity"], $_POST["price"], $_POST["car_id"], $_POST["surface"], $_POST["bungalow_id"]))
+        {
+            $bungalow_id = (int)$_POST["bungalow_id"];
+        
+            $bungalow = $this->bm->findBungalowById($id);
 
-        if ($bungalow !== null) {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $bungalow->setName($_POST['name']);
-                $bungalow->setDescription($_POST['description']);
-                $bungalow->setPhoto_id($_POST['photo_id']);
-                $bungalow->setCapacity($_POST['capacity']);
-                $bungalow->setPrice($_POST['price']);
-                $bungalow->setCar_id($_POST['car_id']);
-                $bungalow->setSurface($_POST['surface']);
+            if ($bungalow !== null) {
+               
+                $bungalow->setName(htmlspecialchars($_POST["name"]));
+                $bungalow->setDescription(htmlspecialchars($_POST["description"]));
+                $bungalow->setPhoto_id(htmlspecialchars($_POST["photo_id"]));
+                $bungalow->setCapacity((int)$_POST["capacity"]);
+                $bungalow->setPrice((int)$_POST["price"]);
+                $bungalow->setCar_id(htmlspecialchars($_POST["car_id"]));
+                $bungalow->setSurface((int)$_POST["surface"]);
 
-                $this->bungalowManager->updateBungalow($bungalow);
-                header('Location: /bungalows/' . $bungalow->getId()); // Rediriger après la mise à jour
-            } else {
-                require 'views/bungalows/edit.php'; // Vue pour le formulaire d'édition
+                $this->bm->updateBungalow($bungalow);
+                
+                $this->redirect('admin-list-bungalow');
+            } 
+            else 
+            {
+               $_SESSION['error_message'] = 'Bungalow not found';
+                $this->redirect("admin-edit-bungalow?id=" . $id);
             }
-        } else {
-            header('HTTP/1.0 404 Not Found');
-            echo 'Bungalow not found';
+        } 
+        else 
+        {
+            $_SESSION['error_message'] = 'Please provide all required fields.';
+            $this->redirect("admin-edit-bungalow?id=" . ($_POST["id"] ?? ""));
         }
     }
 
     // Supprimer un bungalow
-    public function delete(int $id)
+    public function delete(int $id) : void
     {
-        $this->bungalowManager->deleteBungalow($id);
-        header('Location: /bungalows'); // Rediriger vers la liste des bungalows
+        $this->bm->deleteBungalow($id);
+        
+        $_SESSION['success_message'] = 'Bungalow successfully deleted.';
+        
+        $this->redirect("admin-list-bungalow");
     }
     
-   /* public function displayBungalow(int $id)
+    public function list() : void 
     {
+        $bungalows = $this->um->findAllBungalows();
+        
+        $this->render("admin/bungalows/list.html.twig", ['bungalows' => $bungalows]);
+    }
+
+     // Afficher un bungalow spécifique
+    public function show(int $id) : void {
+        
         $bungalow = $this->bm->findBungalowById($id);
         
-        if ($bungalow) {
-            include 'bungalow_view.php';
-        } else {
-            echo "Bungalow non trouvé";
+        if($bungalow !== null)
+        {
+             $this->render("admin/bungalows/show.html.twig", ['bungalow' => $bungalow]);
         }
-    }*/
+        else
+        {
+            $this->redirect("admin-list-bungalow");
+        }
+    }
+    
     
 }
     

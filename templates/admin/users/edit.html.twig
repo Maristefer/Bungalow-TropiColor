@@ -7,6 +7,31 @@
         <input type="hidden" id="csrf_token" name="csrf_token" value="{{ session.csrf_token }}" />
         <input type="hidden" id="user_id" name="user_id" value="{{user.id}}"></input>
         <fieldset class="mb-2">
+                <label for="last_name" class="form-label">
+                    Nom
+                </label>
+                <input type="text" name="last_name" id="last_name" required class="form-control" value="{{user.last_name}}"/>
+            </fieldset>
+            
+             <fieldset class="mb-2">
+                <label for="first_name" class="form-label">
+                    Prénom
+                </label>
+                <input type="text" name="first_name" id="first_name" required class="form-control" value="{{user.first_name}}"/>
+            </fieldset>
+             <fieldset class="mb-2">
+                <label for="date_of_birth" class="form-label">
+                    Date de naissance
+                </label>
+                <input type="date" name="date_of_birth" id="date_of_birth" required class="form-control" value="{{user.date_of_birth|date("Y-m-d")}}"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="phone" class="form-label">
+                    Téléphone
+                </label>
+                <input type="tel" name="phone" id="phone" required class="form-control" value="{{user.phone}}"/>
+            </fieldset>
+        <fieldset class="mb-2">
             <label for="email" class="form-label">
                 Email
             </label>
@@ -24,6 +49,30 @@
             </label>
             <input type="password" name="confirm_password" id="confirm_password" required class="form-control"/>
         </fieldset>
+        <fieldset class="mb-2">
+                <label for="number" class="form-label">
+                    N°
+                </label>
+                <input type="text" name="number" id="number" required class="form-control" value="{{user.address.number}}"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="street" class="form-label">
+                    Rue
+                </label>
+                <input type="text" name="street" id="street" required class="form-control" value="{{user.address.street}}"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="postale_code" class="form-label">
+                    Code postal
+                </label>
+                <input type="text" name="postale_code" id="postale_code" required class="form-control" value="{{user.address.postale_code}}"/>
+            </fieldset>
+            <fieldset class="mb-2">
+                <label for="city" class="form-label">
+                    Ville
+                </label>
+                <input type="text" name="city" id="city" required class="form-control" value="{{user.address.city}}"/>
+            </fieldset>
         <fieldset class="mb-2">
             <label for="role" class="form-label">
                 Rôle
