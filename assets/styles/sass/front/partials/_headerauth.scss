@@ -33,11 +33,13 @@
 
 .menu-auth{
     /*align-items: center;*/
-    width: 10%;
-    /*padding: 20px;
-    margin-left: 1rem;*/
-    position: relative;
-    left: 105rem;
+    display:grid;
+    justify-content: end;
+    width: 100%;
+    padding-right: 1rem;
+    //margin-left: 1rem;
+    /*position: relative;
+    left: 105rem;*/
     
     .ul-auth{
         padding: 0;
@@ -65,11 +67,11 @@
     
     .menu-auth{
     /*align-items: center;*/
-    width: 10%;
+    //width: 10%;
     /*padding: 20px;
     margin-left: 1rem;*/
-    position: relative;
-    left: 105rem;
+    //position: relative;
+    //left: 105rem;
     }
 }
 

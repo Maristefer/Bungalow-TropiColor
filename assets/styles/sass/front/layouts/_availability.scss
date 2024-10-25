@@ -1,13 +1,13 @@
 /*CARD*/
 
-.search-bunga-container
+.reserve-bunga-container
 {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 1rem;
     
-    .card-search-bunga
+    .card-reserve-bunga
     {
         background: $gradient-card;
         border-radius: $border-radius-card;
@@ -23,7 +23,7 @@
 }
 
 
-.details-bunga-search 
+.details-bunga-reserve 
 {
     .title-card-h3{
         @include title($color: $text-blue);
@@ -55,11 +55,11 @@
     
     /**CARDS**/
     
-    .search-bunga-container
+    .reserve-bunga-container
     {
     
     
-        .card-search-bunga
+        .card-reserve-bunga
         {
             display: flex;
     
@@ -70,7 +70,7 @@
             }
         }
     }
-    .details-bunga-search 
+    .details-bunga-reserve 
     {
         display: grid;
         .title-card-h3{
