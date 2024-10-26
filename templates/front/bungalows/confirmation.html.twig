@@ -7,11 +7,29 @@
 
 {% block main %}
 <main class="main-confirmation">
-    <h1>Merci pour votre réservation !</h1>
-    <p>Votre réservation a bien été enregistrée. Nous vous avons envoyé un email de confirmation avec les détails.</p>
-   {% if reservationId %}
-        <p>ID de réservation : {{ reservationId }}</p>
-    {% endif %}
-    <a href="index.php?route=home">Retour à la page d'accueil</a>
+    <section class="confirmation-section">
+        <div class="confirmation-banner">
+            <h2 class="title-confirmation">Merci pour votre réservation !</h2>
+            <p>Votre réservation a bien été envoyée. Voici les détails :</p>
+        </div>
+        
+        <div class="reservation-summary">
+            <h3>Détails de votre réservation</h3>
+            
+            <div class="reservation-details">
+                <p><strong>Bungalow :</strong> {{ reservation.bungalow.getName() }}</p>
+                <p><strong>Date d'arrivée :</strong> {{ reservation.start_date|date("d-m-Y") }}</p>
+                <p><strong>Date de départ :</strong> {{ reservation.end_date|date("d-m-Y") }}</p>
+                <p><strong>Nombre de personnes :</strong> {{ reservation.capacity }}</p>
+                <p><strong>Prix total :</strong> {{ reservation.total_price }} €</p>
+            </div>
+            
+            <p class="thank-you-message">Nous vous remercions pour votre confiance et avons hâte de vous accueillir !</p>
+            <div class="actions">
+                <a href="index.php?route=home" class="btn-home">Retour à l'accueil</a>
+                <a href="index.php?route=my-reservations" class="btn-view-reservations">Voir mes réservations</a>
+            </div>
+        </div>
+    </section>
 </main>
 {% endblock %}

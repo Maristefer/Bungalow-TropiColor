@@ -84,7 +84,8 @@ class Router
         }
         else if(isset($get["route"]) && $get["route"] === "confirmation")
         {
-            $this->rc->createReserve();
+
+            $this->rc->showConfirmation();
         }
          else if(isset($get["route"]) && $get["route"] === "inscription")
         {

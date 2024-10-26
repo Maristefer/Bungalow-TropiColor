@@ -8,7 +8,7 @@ class ReservationManager extends AbstractManager
     }
     
     // Créer une réservation
-    public function createReservation(Reservation $reservation) : Reservation
+    public function createReservation(Reservation $reservation) : int//Reservation
     {
         $query = $this->db->prepare('INSERT INTO reservation (id, user_id, bungalow_id, start_date, end_date, created_at, total_price) VALUES (NULL, :user_id, :bungalow_id, :start_date, :end_date, :created_at, :total_price)');
         $parameters = [
@@ -26,7 +26,7 @@ class ReservationManager extends AbstractManager
         // Récupérer l'ID du dernier reservation inséré
         $reservation->setId($this->db->lastInsertId());
 
-        return  $reservation;
+        return  (int) $reservation;
     }
 
     // Récupérer toutes les réservations
