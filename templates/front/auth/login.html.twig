@@ -2,26 +2,37 @@
 
 {% block main %}
     <main class="main-login">
-        <div>
+        <section>
+            <h2>Connexion</h2>
+            <div>
             <p>{{session.error_message}}</p>
         </div>
+        <div class="login-form">
         <form action="index.php?route=check-connexion" method="post">
             <input type="hidden" id="csrf_token" name="csrf_token" value="{{session.csrf_token}}" />
-            <fieldset>
-                <label for="email" class="form-label">
-                    Email
-                </label>
-                <input type="email" name="email" id="email" required class="form-control"/>
-            </fieldset>
-            <fieldset>
-                <label for="password" class="form-label">
-                    Mot de passe
-                </label>
-                <input type="password" name="password" id="password" required class="form-control"/>
-            </fieldset>
-            <fieldset class="mt-3">
-                <button type="submit" class="btn btn-primary">Se Connecter</button>
-            </fieldset>
+            <div class="form-login">
+                <fieldset class="form-group-login">
+                    <label for="email" class="form-label">
+                        Email
+                    </label>
+                    <input type="email" name="email" id="email" required class="form-control"/>
+                </fieldset>
+                <fieldset class="form-group-login">
+                    <label for="password" class="form-label">
+                        Mot de passe
+                    </label>
+                    <input type="password" name="password" id="password" required class="form-control"/>
+                </fieldset>
+                <fieldset class="btn-l">
+                    <button type="submit" class="btn-form-login">Se Connecter</button>
+                </fieldset>
+                <p>Première connexion ?</p>
+            <p><a href="">Créer votre compte</a></p>
+            </div>
+            
         </form>
+        </div>
+        </section>
+        
     </main>
 {% endblock %}

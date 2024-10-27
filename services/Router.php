@@ -84,7 +84,10 @@ class Router
         }
         else if(isset($get["route"]) && $get["route"] === "confirmation")
         {
-
+            $this->rc->confirmation();
+        }
+        else if(isset($get["route"]) && $get["route"] === "show-confirmation")
+        {
             $this->rc->showConfirmation();
         }
          else if(isset($get["route"]) && $get["route"] === "inscription")

@@ -91,30 +91,31 @@ class ReservationController extends AbstractController
         $reservationId = $this->rm->createReservation($reservation);
         // Rediriger vers la page de confirmation
         //$this->redirect("confirmation");
-        $this->redirect("index.php?route=confirmation?reservation_id=$reservationId");
+        $this->redirect("index.php?route=show-confirmation?reservation_id=$reservationId");
         
     }
     
-    public function showConfirmation()
-{
-    // Récupérer l'ID de la réservation à partir de la requête GET
-    $reservationId = $_GET['reservation_id'] ?? null;
+    public function showConfirmation(int $reservationId) :void
+    {
+        // Récupérer l'ID de la réservation à partir de la requête GET
+        $reservationId = $_GET['reservation_id'] ?? null;
     
-    if (!$reservationId) {
-        echo "Aucune réservation spécifiée.";
-        return;
+        if ($reservationId) {
+            // Trouver la réservation avec l'ID
+            $reservation = $this->rm->findReservationById((int)$reservationId);
+            if ($reservationId) {
+                // Rendre le template de confirmation avec la réservation
+                $this->render('front/bungalows/confirmation.html.twig', ['reservation' => $reservation]);
+            }
+            else
+            {
+                echo "Réservation introuvable.";
+            }
+        }
+        else
+        {
+            echo "Aucune réservation spécifiée.";
+        }
     }
-    
-    // Trouver la réservation avec l'ID
-    $reservation = $this->rm->findReservationById((int)$reservationId);
-    
-    if (!$reservation) {
-        echo "Réservation non trouvée.";
-        return;
-    }
-    
-    // Rendre le template de confirmation avec la réservation
-    $this->render('front/bungalows/confirmation.html.twig', ['reservation' => $reservation]);
-}
     
 }
