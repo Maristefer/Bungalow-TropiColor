@@ -42,11 +42,17 @@
     </section>
     <section class="present">
         <h2 class="title-apropos">Bungalow TropiColor</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, quaerat, ipsa, sint atque omnis ducimus libero distinctio eligendi illo earum provident eius qui sit facere voluptatem enim suscipit dolor laboriosam!
+        <p class="text-home-apropos">
+            Le Bungalow TropiColor vous accueille dans un cadre exceptionnel, où règnent calme et nature luxuriante. Situé au Lamentin, en Guadeloupe, 
+            ce havre de paix se niche parmi les dernières habitations avant une vaste zone protégée.<br>
+            Avec ses deux bungalows en location saisonnière, le Bungalow TropiColor se trouve à proximité de plages de sable noir et de sable blanc, 
+            offrant un contraste saisissant entre mer et nature. Le matin, laissez-vous charmer par les sucriers et les colibris qui viennent butiner les hibiscus colorés à votre fenêtre. 
+            Et pour combler vos sens, découvrez nos fruits exotiques : goyaves, pommes cythères, et bien d'autres délices tropicaux.
         </p>
         
-        
+        <figure class="img-apropos">
+            <img src="assets/img/hibiscus-colibri.jpg" alt="une fleur d'hibiscus rouge avce un colibri qui butine"/>
+        </figure>
         
     </section>
     <section class="bungalows">
@@ -58,7 +64,7 @@
             {% for bungalow in bungalows %}
                 <div class="card-home-bunga">
                     <figure>
-                        <img src="assets/img/plage-grande-anse.jpg" alt=""/>
+                        <img src="assets/img/plage-grande-anse.jpg" alt="photo de l'extérieur d'un bungalow"/>
                     </figure>
                     <div class="details-bunga">
                         <h3 class="title-card-h3">{{ bungalow.getName() }}</h3>

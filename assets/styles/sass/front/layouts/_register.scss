@@ -4,32 +4,59 @@
     width: 100%;
     height: 100%;
     margin-bottom: 1rem;
-    margin-top: 2rem;
+    //margin-top: 2rem;
     
         .form-register {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            @include form;
+            display: grid;
+            grid-template-columns: 50% 50%;/*2 colonnes qui fait 30% de l'élément parent*/
+            grid-template-rows: auto; 
+            justify-content: center;
+            @include formAuth;
             font-size: .9rem;
             background: $gradient-card;
             row-gap: 1rem;
             padding-top: 1rem;
             width: 50%;
+            
+            .form-register-column-left{
+                .form-group-register 
+                {
+                    display:flex;
+                    flex-direction:column;
+                    align-items: center;
+                    width: 100%;
+                    margin-bottom: 1rem;
         
-            .form-group-register {
-                display:flex;
-                flex-direction:column;
-                align-items: center;
-                width: 100%;
-                margin-bottom: 1rem;
-        
-                .form-control {
-                    @include input;
-                    margin-top: .5rem;
-                    width: 50%;
+                    .form-control 
+                    {
+                        @include inputAuth;
+                        margin-top: .5rem;
+                        width: 50%;
+                    }
                 }
             }
+            
+            .form-register-column-right{
+                
+                .form-group-register 
+                {
+                    display:flex;
+                    flex-direction:column;
+                    align-items: center;
+                    width: 100%;
+                    margin-bottom: 1rem;
+        
+                    .form-control 
+                    {
+                        @include inputAuth;
+                        margin-top: .5rem;
+                        width: 50%;
+                    }
+                }
+            }
+            
+        
+            
         }
     
 }

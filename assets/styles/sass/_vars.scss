@@ -32,6 +32,8 @@ $gradient-bg-footer: linear-gradient(90deg, #107D98 50%, #0D3C48 88%);
 // ? BORDERS
 
 $border-input: 2px solid #00A2C7;
+$border-input-auth: 1px solid #00A2C7;
+
 $border-button-blue: 4px solid #00A2C7;
 $border-button-blue-fin: 2px solid #00A2C7;
 
@@ -63,6 +65,13 @@ $border-radius-banner: 4rem 0rem 4rem 0rem;
     border: $border;
     border-radius: .4rem;
 }
+@mixin formAuth($color: $text-orange, $font-family: $font-fami-text, $border: $border-input-auth)
+{
+    font-family: $font-family;
+    color:$color;
+    border: $border;
+    border-radius: .4rem;
+}
 
 @mixin input($font-family: $font-fami-text, $border: $border-input )
 {
@@ -71,6 +80,12 @@ $border-radius-banner: 4rem 0rem 4rem 0rem;
     border-radius: .4rem;
 }
 
+@mixin inputAuth($font-family: $font-fami-text, $border: $border-input-auth )
+{
+    font-family: $font-family;
+    border: $border;
+    border-radius: .4rem;
+}
 /*@mixin title($font-size: 1.6rem , $color: $title-orange, $font-family:$font-fami-title)
 {
     font-family: $font-family;

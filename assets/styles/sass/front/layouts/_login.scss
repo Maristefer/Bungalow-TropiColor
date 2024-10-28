@@ -1,23 +1,26 @@
-.login-form {
+.login-form 
+{
     display: flex;
     justify-content: center;
     width: 100%;
     height: 100%;
     margin-bottom: 1rem;
-    margin-top: 2rem;
+    //margin-top: 2rem;
     
-        .form-login {
+        .form-login 
+        {
             display: flex;
             flex-direction: column;
             align-items: center;
-            @include form;
+            @include formAuth;
             font-size: .9rem;
             background: $gradient-card;
             row-gap: 1rem;
             padding-top: 1rem;
             width: 100%;
         
-            .form-group-login {
+            .form-group-login 
+            {
                 display:flex;
                 flex-direction:column;
                 align-items: center;
@@ -26,19 +29,22 @@
                 margin-right: 2rem;
                 margin-bottom: 1rem;
                 
-                .form-label {
+                .form-label 
+                {
                     color: $text-black;
                 }
         
-                .form-control {
-                    @include input;
+                .form-control 
+                {
+                    @include inputAuth;
                     margin-top: .5rem;
                     width: 90%;
                 }
                 
                 
             }
-            .btn-form-login {
+            .btn-form-login 
+            {
                 background-color: $bg-button-blue;
                 padding: .5rem 2rem;
                 border-radius: 4rem .5rem;
@@ -47,79 +53,64 @@
                 margin-bottom: 1rem;
                 border: $border-button-blue-fin;
                 font-family: $font-fami-text;
+            }
+                
+            .one-login
+            {
+                color: #000;
+            }    
+            .btn-register-login 
+            {
+                background-color: $bg-button-orange;
+                padding: .5rem 2rem;
+                border-radius: 4rem .5rem;
+                //max-width:19%;
+                
+                margin-bottom: 1rem;
+                border: $border-orange;
+                font-family: $font-fami-text;
+                
+                a
+                {
+                    text-decoration: none;
+                    color: $text-white;
                 }
-        }
-    @media screen and (min-width: 780px) {
-        .form-login {
-            font-size: 0.9rem;
-            padding: 2rem;
-            width: 70%; // pour tablette et desktop
-            .form-group-login .form-control {
-                width: 60%;
             }
         }
-    }
+    }    
+/*hover*/        
 
-    @media screen and (min-width: 1024px) {
-        .form-login {
-            width: 50%; // réduit la largeur sur desktop
-            .form-group-login .form-control {
-                width: 100%; // réduit la largeur des champs
+    .login-form
+    {
+        .form-login
+        {
+            .btn-form-login:hover
+            {
+                background-color: $bg-button-orange;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .btn-register-login:hover
+            {
+                background-color: $bg-button-blue;
+                padding: 0.5rem 1.5rem;
+                a:hover 
+                {
+                    color: black;
+                    
+                }
+                
             }
         }
-    }
+    }    
+    
+@media screen and (min-width: 780px) {
+    
+}
+      
+
+@media screen and (min-width: 980px) {
+    
+    
 }
 
-/*.login-form {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem;
-    margin-top: 2rem;
-
-    .form-login {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include form;
-        font-size: 1rem;
-        background: $gradient-card;
-        row-gap: 1rem;
-        padding: 1rem;
-        width: 100%; // pleine largeur sur mobile
-        
-        .form-group-login {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 1rem;
-
-            .form-control {
-                @include input;
-                margin-top: 0.5rem;
-                width: 90%; // pleine largeur ou presque sur mobile
-            }
-        }
-    }
-    
-    @media screen and (min-width: 780px) {
-        .form-login {
-            font-size: 0.9rem;
-            padding: 2rem;
-            width: 70%; // pour tablette et desktop
-            .form-group-login .form-control {
-                width: 60%;
-            }
-        }
-    }
-
-    @media screen and (min-width: 1024px) {
-        .form-login {
-            width: 50%; // réduit la largeur sur desktop
-            .form-group-login .form-control {
-                width: 100%; // réduit la largeur des champs
-            }
-        }
-    }
-}*/

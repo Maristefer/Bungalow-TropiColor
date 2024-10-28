@@ -225,7 +225,7 @@ h1 {
     display: none;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding-bottom: 1rem;
   }
   header {
@@ -233,6 +233,9 @@ h1 {
     border-bottom: none;
     position: sticky;
     top: 0.1rem;
+  }
+  .fig-logo .logo {
+    width: 30%;
   }
   /***MENU***/
   .menu {
@@ -705,6 +708,29 @@ h2 {
   padding: 0rem 1rem;
 }
 
+/*section A propos*/
+.present {
+  display: grid;
+  grid-template-columns: 30% 30% 30%; /*2 colonnes qui fait 30% de l'élément parent*/
+  grid-template-rows: auto;
+  justify-content: center;
+}
+.present .title-apropos {
+  grid-row: 1/2;
+  grid-column: 1/4;
+}
+.present .text-home-apropos {
+  font-family: "Signika", sans-serif;
+  color: #000;
+  text-align: center;
+  line-height: 1.3rem;
+  grid-row: 2/2;
+  grid-column: 1/4;
+}
+.present .img-apropos {
+  display: none;
+}
+
 /*CARD*/
 .home-bunga-container {
   display: flex;
@@ -813,6 +839,32 @@ h2 {
     padding: 0rem 1.5rem;
     font-size: 1rem;
   }
+  /*Section a propos*/
+  .present {
+    /*display: grid;
+    grid-template-columns: 30% 30% 30%;/*2 colonnes qui fait 30% de l'élément parent*/
+    /*grid-template-rows: auto; 
+    justify-content: center;*/
+    margin-top: 1rem;
+  }
+  .present .title-apropos {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
+  .present .text-home-apropos {
+    grid-row: 2/2;
+    grid-column: 1/3;
+    margin: 1rem;
+  }
+  .present .img-apropos {
+    display: block;
+    grid-row: 1/3;
+    grid-column: 3/4;
+  }
+  .present .img-apropos img {
+    max-width: 100%;
+    border-radius: 4rem 0rem 4rem 0rem;
+  }
   /**CARDS**/
   .details-bunga .title-card-h3 {
     font-size: 2rem;
@@ -903,6 +955,32 @@ h2 {
     padding: 0.5rem 1.5rem;
     font-size: 1.3rem;
   }
+  /*Section a propos*/
+  .present {
+    /*display: grid;
+    grid-template-columns: 30% 30% 30%;/*2 colonnes qui fait 30% de l'élément parent*/
+    /*grid-template-rows: auto; 
+    justify-content: center;*/
+    margin-top: 1rem;
+  }
+  .present .title-apropos {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  .present .text-home-apropos {
+    grid-row: 2/2;
+    grid-column: 1/3;
+    margin: 1rem;
+    text-align: start;
+  }
+  .present .img-apropos {
+    display: block;
+    grid-row: 1/3;
+    grid-column: 3/4;
+  }
+  .present .img-apropos img {
+    height: 15rem;
+  }
   /**CARDS**/
   .home-bunga-container {
     display: flex;
@@ -926,7 +1004,6 @@ h2 {
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
-  margin-top: 2rem;
 }
 .login-form .form-login {
   display: flex;
@@ -934,7 +1011,7 @@ h2 {
   align-items: center;
   font-family: "Signika", sans-serif;
   color: #CC4E00;
-  border: 2px solid #00A2C7;
+  border: 1px solid #00A2C7;
   border-radius: 0.4rem;
   font-size: 0.9rem;
   background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
@@ -956,7 +1033,7 @@ h2 {
 }
 .login-form .form-login .form-group-login .form-control {
   font-family: "Signika", sans-serif;
-  border: 2px solid #00A2C7;
+  border: 1px solid #00A2C7;
   border-radius: 0.4rem;
   margin-top: 0.5rem;
   width: 90%;
@@ -970,85 +1047,41 @@ h2 {
   border: 2px solid #00A2C7;
   font-family: "Signika", sans-serif;
 }
-@media screen and (min-width: 780px) {
-  .login-form .form-login {
-    font-size: 0.9rem;
-    padding: 2rem;
-    width: 70%;
-  }
-  .login-form .form-login .form-group-login .form-control {
-    width: 60%;
-  }
+.login-form .form-login .one-login {
+  color: #000;
 }
-@media screen and (min-width: 1024px) {
-  .login-form .form-login {
-    width: 50%;
-  }
-  .login-form .form-login .form-group-login .form-control {
-    width: 100%;
-  }
+.login-form .form-login .btn-register-login {
+  background-color: #CC4E00;
+  padding: 0.5rem 2rem;
+  border-radius: 4rem 0.5rem;
+  margin-bottom: 1rem;
+  border: #CC4E00;
+  font-family: "Signika", sans-serif;
+}
+.login-form .form-login .btn-register-login a {
+  text-decoration: none;
+  color: #FFF;
 }
 
-/*.login-form {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem;
-    margin-top: 2rem;
+/*hover*/
+.login-form .form-login .btn-form-login:hover {
+  background-color: #CC4E00;
+  padding: 0.5rem 1.5rem;
+}
+.login-form .form-login .btn-register-login:hover {
+  background-color: #00A2C7;
+  padding: 0.5rem 1.5rem;
+}
+.login-form .form-login .btn-register-login:hover a:hover {
+  color: black;
+}
 
-    .form-login {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include form;
-        font-size: 1rem;
-        background: $gradient-card;
-        row-gap: 1rem;
-        padding: 1rem;
-        width: 100%; // pleine largeur sur mobile
-
-        .form-group-login {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 1rem;
-
-            .form-control {
-                @include input;
-                margin-top: 0.5rem;
-                width: 90%; // pleine largeur ou presque sur mobile
-            }
-        }
-    }
-
-    @media screen and (min-width: 780px) {
-        .form-login {
-            font-size: 0.9rem;
-            padding: 2rem;
-            width: 70%; // pour tablette et desktop
-            .form-group-login .form-control {
-                width: 60%;
-            }
-        }
-    }
-
-    @media screen and (min-width: 1024px) {
-        .form-login {
-            width: 50%; // réduit la largeur sur desktop
-            .form-group-login .form-control {
-                width: 100%; // réduit la largeur des champs
-            }
-        }
-    }
-}*/
 .register-form {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
-  margin-top: 2rem;
 }
 .register-form .form-register {
   display: flex;
@@ -1056,7 +1089,7 @@ h2 {
   align-items: center;
   font-family: "Signika", sans-serif;
   color: #CC4E00;
-  border: 2px solid #00A2C7;
+  border: 1px solid #00A2C7;
   border-radius: 0.4rem;
   font-size: 0.9rem;
   background: linear-gradient(180deg, rgba(255, 247, 237, 0.3) 75%, rgba(125, 206, 220, 0.3) 100%);
@@ -1064,16 +1097,30 @@ h2 {
   padding-top: 1rem;
   width: 50%;
 }
-.register-form .form-register .form-group-register {
+.register-form .form-register .form-register-column-left .form-group-register {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin-bottom: 1rem;
 }
-.register-form .form-register .form-group-register .form-control {
+.register-form .form-register .form-register-column-left .form-group-register .form-control {
   font-family: "Signika", sans-serif;
-  border: 2px solid #00A2C7;
+  border: 1px solid #00A2C7;
+  border-radius: 0.4rem;
+  margin-top: 0.5rem;
+  width: 50%;
+}
+.register-form .form-register .form-register-column-right .form-group-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.register-form .form-register .form-register-column-right .form-group-register .form-control {
+  font-family: "Signika", sans-serif;
+  border: 1px solid #00A2C7;
   border-radius: 0.4rem;
   margin-top: 0.5rem;
   width: 50%;
