@@ -103,6 +103,26 @@ class ReservationManager extends AbstractManager
         $item = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($item) {
+
+            // Créez l'objet User
+            $user = new User();
+            $user->setId($item['user_id']);
+            $user->setFirst_name($item['first_name']);
+            $user->setLast_name($item['last_name']);
+            $user->setDate_of_birth(new DateTime($item['date_of_birth']));
+            $user->setEmail($item['email']);
+            $user->setPassword($item['password']);
+            $user->setAddress($item['address']);
+            $user->setPhone($item['phone']); 
+            $user->setCreated_at(new DateTime($item['user_created_at']));
+            $user->setRole($item['role']); 
+        
+            // Créez l'objet Bungalow
+            $bungalow = new Bungalow();
+            $bungalow->setId($item['bungalow_id']);
+            $bungalow->setName($item['name']);
+            $bungalow->setPrice($item['price']); // Assurez-vous que 'price' est bien dans les colonnes
+
             $reservation = new Reservation(
                 $user,
                 $bungalow,

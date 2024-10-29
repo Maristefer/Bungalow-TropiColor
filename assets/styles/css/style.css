@@ -1084,9 +1084,10 @@ h2 {
   margin-bottom: 1rem;
 }
 .register-form .form-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 50% 50%; /*2 colonnes qui fait 30% de l'élément parent*/
+  grid-template-rows: auto;
+  justify-content: center;
   font-family: "Signika", sans-serif;
   color: #CC4E00;
   border: 1px solid #00A2C7;
