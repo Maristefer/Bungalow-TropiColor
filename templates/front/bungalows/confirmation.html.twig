@@ -18,12 +18,12 @@
             <h3>Détails de votre réservation</h3>
             
             <div class="reservation-details">
-                <p><strong>Bungalow :</strong> {{ reservation.bungalow.name }}</p>
-                <p><strong>Nom :</strong> {{ reservation.user.last_name }}</p>
+                <p><strong>Bungalow :</strong> {{ reservation.bungalow.name ?? 'Non spécifié' }}</p>
+                <p><strong>Nom :</strong> {{ reservation.user.last_name ?? 'Non spécifié' }}</p>
                 <p><strong>Date d'arrivée :</strong> {{ reservation.start_date|date("d-m-Y") }}</p>
                 <p><strong>Date de départ :</strong> {{ reservation.end_date|date("d-m-Y") }}</p>
-                <p><strong>Nombre de personnes :</strong> {{ reservation.capacity }}</p>
-                <p><strong>Prix total :</strong> {{ reservation.total_price }} €</p>
+                <p><strong>Nombre de personnes :</strong> {{ reservation.capacity ?? 'Non spécifié' }}</p>
+                <p><strong>Prix total :</strong> {{ reservation.total_price ?? 'Non spécifié' }} €</p>
             </div>
         {% else %}
             <p>Aucune réservation trouvée.</p>

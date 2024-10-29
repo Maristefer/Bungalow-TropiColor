@@ -1126,6 +1126,11 @@ h2 {
   margin-top: 0.5rem;
   width: 50%;
 }
+.register-form .form-register .btn-r .btn-form-register {
+  background-color: #CC4E00;
+  padding: 0.5rem 2rem;
+  border-radius: 4rem 0.5rem;
+}
 
 /*CARD*/
 .reserve-bunga-container {
