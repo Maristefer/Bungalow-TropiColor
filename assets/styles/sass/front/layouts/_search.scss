@@ -1,3 +1,33 @@
+
+.btn-register-search 
+            {
+                /*background-color: $bg-button-orange;
+                padding: .5rem 2rem;
+                border-radius: 4rem .5rem;
+                //max-width:19%;
+                
+                margin-bottom: 1rem;
+                border: $border-orange;*/
+                font-family: $font-fami-text;
+                text-align: center;
+                margin-bottom: 2rem;
+                margin-top: 1rem;
+                
+                a
+                {
+                    text-decoration: none;
+                    color: $text-white;
+                    background-color: $bg-button-orange;
+                padding: .5rem 2rem;
+                border-radius: 4rem .5rem;
+                //max-width:19%;
+                
+                margin-bottom: 1rem;
+                border: $border-orange;
+                font-family: $font-fami-text;
+                }
+            }
+
 /*CARD*/
 
 .search-bunga-container

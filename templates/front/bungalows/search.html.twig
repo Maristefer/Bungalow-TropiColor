@@ -7,16 +7,49 @@
 
 {% block main %}
 <main class="main-search-bunga">
+<section class="home">
+        <div class="banner-home">
+            <h2 class="title-accueil">Rechercher si le bungalow que vous désirez est disponible!</h2>
+            <div class="search-form">
+                <form action="index.php?route=check-disponibilite" method="post" class="form-search">
+                    <div class="form-group-arrival">
+                        <label for="arrival-date">Date d'arrivée :</label>
+                        <input type="date" class="input-date" id="arrival-date" name="start_date" required />
+                    </div>
+                    <div class="form-group-depart">
+                        <label for="departure-date">Date de départ :</label>
+                        <input type="date" class="input-date" id="departure-date" name="end_date" required />
+                    </div>
+                    <div class="form-group-capacity">
+                        <label for="capacity">Nombre de personnes :</label>
+                        <input type="number" class="input-number" id="capacity" name="capacity" min="1" required />
+                    </div>
+                    <!--<div class="form-group-adults">
+                        <label for="nb-adults">Adultes :</label>
+                        <input type="number" class="input-number" id="nb-adults" name="nb_adults" min="1" value="1" required>
+                    </div>
+                    <div class="form-group-child">
+                        <label for="nb-children">Enfants :</label>
+                        <input type="number" class="input-number" id="nb-children" name="nb_children" min="0" value="0">
+                    </div>-->
+                    <div class="form-group-button">
+                        <button type="submit" class="btn-search">Rechercher</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
     <section class="bungalows">
         <h2 class="title-search-bunga">Vérifier la disponibilité des bungalows</h2>
-        
+        <p class="btn-register-search">Créer un compte client pour une meilleur organisation : <a href="index.php?route=inscription">Créer votre compte</a></p>
         
         <article class="search-bunga-container">
             <h3 class="text-search">Sélectionner les dates de votre séjour</h3>
             {% for bungalow in bungalows %}
                 <div class="card-search-bunga">
                     <figure>
-                        <img src="assets/img/plage-grande-anse.jpg" alt=""/>
+                        <img src="assets/img/bungalow 1 2.jpg" alt="photo de l'extérieur d'un bungalow"/>
                     </figure>
                     <div class="details-bunga-search">
                         <h3 class="title-card-h3">{{ bungalow.getName() }}</h3>

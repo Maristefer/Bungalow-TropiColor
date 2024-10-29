@@ -86,6 +86,14 @@
 
 }
 
+.search-form {
+    .btn-search:hover{
+        background-color: $bg-button-orange;
+        border: $border-orange;
+        padding: 0.5rem 1.5rem;
+    }
+}
+
 /*section A propos*/
 
 .present 
@@ -118,6 +126,12 @@
 }
 
 /*CARD*/
+
+.text-bunga{
+    @include paragraph;
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
 .home-bunga-container
 {
@@ -280,6 +294,20 @@
 }
 
 /**CARDS**/
+
+.text-bunga{
+    font-size: 1.3rem;
+}
+.home-bunga-container{
+   .card-home-bunga{
+        max-width: 60%
+        /*img{
+            width: 80%;
+        } */
+    } 
+}
+
+
 .details-bunga 
 {
     .title-card-h3{
@@ -430,7 +458,7 @@
     
     .card-home-bunga
     {
-        max-width: 60%;
+        max-width: 40%;
         margin-bottom: 1rem;
     
         /*img
