@@ -91,14 +91,14 @@ class ReservationController extends AbstractController
         $reservationId = $this->rm->createReservation($reservation);
         // Rediriger vers la page de confirmation
         //$this->redirect("confirmation");
-        $this->redirect("index.php?route=show-confirmation&reservation_id=$reservationId");
+        $this->redirect("index.php?route=confirmation&reservation_id=$reservationId");
         
     }
     
     public function showConfirmation(int $reservationId) :void
     {
         // Récupérer l'ID de la réservation à partir de la requête GET
-        $reservationId = $_GET['reservation_id'] ?? null;
+        $reservationId = $_GET['reservation_id'] ?? $reservationId;
     
         if ($reservationId) {
             // Trouver la réservation avec l'ID

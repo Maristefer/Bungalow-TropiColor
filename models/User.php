@@ -4,7 +4,7 @@ class User
 {
     private ? int $id =null;
 
-    public function __construct(private string $last_name, private string $first_name, private DateTime $date_of_birth, private string $email, private string $password, private ? Address $address, private int $phone, private DateTime $created_at, private string $role)
+    public function __construct(private string $last_name, private string $first_name, private ? DateTime $date_of_birth, private string $email, private string $password, private ? Address $address, private ? int $phone, private DateTime $created_at, private string $role)
     {
         
     }
@@ -41,12 +41,12 @@ class User
 
     }
     
-    public function getDate_of_birth(): DateTime
+    public function getDate_of_birth(): ?DateTime
     {
         return $this->date_of_birth;
     }
 
-    public function setDate_of_birth(DateTime $date_of_birth): void
+    public function setDate_of_birth(?DateTime $date_of_birth): void
     {
         $this->date_of_birth = $date_of_birth;
 
@@ -83,12 +83,12 @@ class User
         $this->address = $address;
     }
 
-    public function getPhone(): int
+    public function getPhone(): ?int
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): void
+    public function setPhone(? int $phone): void
     {
         $this->phone = $phone;
     }

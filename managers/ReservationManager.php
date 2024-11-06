@@ -92,7 +92,8 @@ class ReservationManager extends AbstractManager
     // Récupérer une réservation par son ID
     public function findReservationById(int $id): ?Reservation
     {
-        $query = $this->db->prepare("SELECT r.*, u.id AS user_id, u.first_name, u.last_name, b.id AS bungalow_id, b.name
+        $query = $this->db->prepare("SELECT r.*, u.id AS user_id, u.first_name, u.last_name, u.date_of_birth, 
+                u.email, u.password, u.address, u.phone, u.created_at AS created_at, u.role, b.id AS bungalow_id, b.name, b.price
                 FROM reservation r
                 JOIN users u ON r.user_id = u.id
                 JOIN bungalows b ON r.bungalow_id = b.id
@@ -109,11 +110,11 @@ class ReservationManager extends AbstractManager
                 $item['user_id'],          // Assurez-vous que ces colonnes sont correctes et bien récupérées
                 $item['first_name'],
                 $item['last_name'],
-                new DateTime($item['date_of_birth']),
-                $item['email'],
+                isset($item['date_of_birth']) ? new DateTime($item['date_of_birth']) : null,
+                $item['email'] ,
                 $item['password'],
-                $item['address'],
-                $item['phone'],
+                $item['address'] ?? null,
+                $item['phone'] ?? null,
                 new DateTime($item['created_at']),
                 $item['role']
             );

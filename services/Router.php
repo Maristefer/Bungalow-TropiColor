@@ -84,9 +84,19 @@ class Router
         }
         else if(isset($get["route"]) && $get["route"] === "confirmation")
         {
-            $this->rc->confirmation();
+            
+             // Vérifier et récupérer le reservation_id depuis $get
+             $reservationId = isset($_GET["reservation_id"]) ? (int)$_GET["reservation_id"] : null;
+
+             if ($reservationId !== null) {
+ 
+                 // Appeler la méthode avec $reservationId
+                 $this->rc->showConfirmation($reservationId);
+             } else {
+                $this->rc->confirmation();
+             }
         }
-        else if(isset($get["route"]) && $get["route"] === "show-confirmation")
+        /*else if(isset($get["route"]) && $get["route"] === "show-confirmation")
         {
             // Vérifier et récupérer le reservation_id depuis $get
             $reservationId = isset($_GET["reservation_id"]) ? (int)$_GET["reservation_id"] : null;
@@ -99,7 +109,7 @@ class Router
                 // Gérer le cas où l'ID est manquant ou non valide
                 echo "Erreur : ID de réservation manquant ou invalide.";
             }
-        }
+        }*/
          else if(isset($get["route"]) && $get["route"] === "inscription")
         {
             $this->ac->register();
